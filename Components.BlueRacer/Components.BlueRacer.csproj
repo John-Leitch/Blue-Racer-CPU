@@ -93,8 +93,8 @@
       <Project>{4249db75-bbb6-4cc4-b046-3170dd1d3bc1}</Project>
       <Name>Components.Aphid</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Fuzzing2\Components\Components.csproj">
-      <Project>{4938604e-7501-4b8a-870d-50887883e38b}</Project>
+    <ProjectReference Include="..\Components\Components.csproj">
+      <Project>{8aeb4bf0-34cd-4145-b3a4-a0c0fc09f11d}</Project>
       <Name>Components</Name>
     </ProjectReference>
   </ItemGroup>
