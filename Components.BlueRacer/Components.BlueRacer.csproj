@@ -49,7 +49,13 @@
     <Compile Include="BinaryOperatorConstantModuleGenerator.cs" />
     <Compile Include="BinaryOperatorRegisterModuleGenerator.cs" />
     <Compile Include="CodeFile.cs" />
+    <Compile Include="CpuConnection.cs" />
+    <Compile Include="CpuConsole.cs" />
+    <Compile Include="CpuContext.cs" />
+    <Compile Include="CpuDebugger.cs" />
+    <Compile Include="CpuProgrammer.cs" />
     <Compile Include="CpuSoftwareVerifier.cs" />
+    <Compile Include="CpuVerificationRunner.cs" />
     <Compile Include="CpuVerifier.cs" />
     <Compile Include="InstructionStreamVerifier.cs" />
     <Compile Include="McuTestTemplate.cs" />
@@ -57,6 +63,7 @@
     <Compile Include="ModelSimList.cs" />
     <Compile Include="ModelSimListItem.cs" />
     <Compile Include="ModelSimSettings.cs" />
+    <Compile Include="ProgrammerCommand.cs" />
     <Compile Include="RegisterComparisonCaseGenerator.cs" />
     <Compile Include="CpuCommand.cs" />
     <Compile Include="CpuCommandState.cs" />
