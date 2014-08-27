@@ -212,3 +212,9 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
+
+# Quartus II files
+*.bak
+*.tdf
+*.cdb
+*.hdb
