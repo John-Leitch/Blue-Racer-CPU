@@ -1,0 +1,8 @@
+﻿Assert = macro(@(exp) {
+    exp;
+    gotoTrue(skipError);
+    error();
+    skipError;
+});
+
+Assert9 = macro(@(val) { Assert(val == 9); });

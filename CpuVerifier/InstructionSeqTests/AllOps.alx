@@ -1,0 +1,72 @@
+﻿r1 = 0x500;
+r2 = r1;
+
+*r1 = r2;
+r2 = *r1;
+
+push(0xdeadbeef);
+push(r2);
+pop(r2);
+
+r1 += r2;
+r1 += 0xdeadbeef;
+
+r1 -= r2;
+r1 -= 0xdeadbeef;
+
+r1 *= r2;
+r1 *= 0xdeadbeef;
+
+r1 /= r2;
+r1 /= 0xdeadbeef;
+
+r1 & r2;
+r1 & 0xdeadbeef;
+
+r1 |= r2;
+r1 |= 0xdeadbeef;
+
+r1 >> r2;
+r1 >> 0xdeadbeef;
+
+r1 << r2;
+r1 << 0xdeadbeef;
+
+r1 ^= r2;
+r1 ^= 0xdeadbeef;
+
+r1 == r2;
+r1 == 0xdeadbeef;
+
+r1 != r2;
+r1 != 0xdeadbeef;
+
+r1 < r2;
+r1 < 0xdeadbeef;
+
+r1 <= r2;
+r1 <= 0xdeadbeef;
+
+r1 > r2;
+r1 > 0xdeadbeef;
+
+r1 >= r2;
+r1 >= 0xdeadbeef;
+
+r1++;
+r1--;
+
+r1 = in0;
+r1 = in1;
+r1 = in2;
+r1 = in3;
+
+out0 = r1;
+out1 = r1;
+out2 = r1;
+out3 = r1;
+
+out0 = 0xdeadbeef;
+out1 = 0xdeadbeef;
+out2 = 0xdeadbeef;
+out3 = 0xdeadbeef;
