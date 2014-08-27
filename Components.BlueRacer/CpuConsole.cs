@@ -196,6 +196,20 @@ namespace Components.BlueRacer
                         Console.Clear();
                         break;
 
+                    case "cd":
+                        CheckArguments(tokens, 1);
+
+                        try
+                        {
+                            Directory.SetCurrentDirectory(tokens[1]);
+                        }
+                        catch (Exception e)
+                        {
+                            Cli.WriteLine("~Red~Error:~R~ {0}", e.Message);
+                        }
+
+                        break;
+
                     default:
                         PrintError("Invalid command {0}", tokens[0]);
                         break;
