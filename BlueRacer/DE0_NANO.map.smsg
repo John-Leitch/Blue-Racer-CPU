@@ -1,0 +1,8 @@
+Info (10281): Verilog HDL Declaration information at Cpu.v(33): object "reset" differs only in case from object "Reset" in the same scope
+Info (10281): Verilog HDL Declaration information at MemoryController.v(5): object "read1" differs only in case from object "Read1" in the same scope
+Info (10281): Verilog HDL Declaration information at MemoryController.v(11): object "read2" differs only in case from object "Read2" in the same scope
+Info (10281): Verilog HDL Declaration information at MemoryController.v(17): object "read4" differs only in case from object "Read4" in the same scope
+Info (10281): Verilog HDL Declaration information at MemoryController.v(25): object "read5" differs only in case from object "Read5" in the same scope
+Info (10281): Verilog HDL Declaration information at MemoryController.v(33): object "write1" differs only in case from object "Write1" in the same scope
+Info (10281): Verilog HDL Declaration information at MemoryController.v(40): object "write4" differs only in case from object "Write4" in the same scope
+Info (10281): Verilog HDL Declaration information at MemoryController.v(47): object "write5" differs only in case from object "Write5" in the same scope

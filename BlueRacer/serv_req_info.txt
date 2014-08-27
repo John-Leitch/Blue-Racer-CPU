@@ -1,0 +1,48 @@
+<internal_error>
+	<executable>quartus_sta.exe</executable>
+	<sub_system>MEM</sub_system>
+	<error>*** Fatal Error: Out of memory in module quartus_sta.exe (5433 megabytes used)</error>
+	<date>Wed Jun 11 04:08:14 2014</date>
+	<version>Version 13.1.0 Build 162 10/23/2013 SJ Web Edition</version>
+</internal_error>
+
+<internal_error>
+	<executable>quartus_sta.exe</executable>
+	<sub_system>MEM</sub_system>
+	<error>*** Fatal Error: Out of memory in module quartus_sta.exe (6343 megabytes used)</error>
+	<date>Wed Jun 11 20:32:23 2014</date>
+	<version>Version 13.1.0 Build 162 10/23/2013 SJ Web Edition</version>
+</internal_error>
+
+<internal_error>
+	<executable>quartus_map.exe</executable>
+	<sub_system>MEM</sub_system>
+	<error>*** Fatal Error: Out of memory in module quartus_map.exe (6040 megabytes used)</error>
+	<date>Wed Jul 23 14:00:48 2014</date>
+	<version>Version 13.1.0 Build 162 10/23/2013 SJ Web Edition</version>
+</internal_error>
+
+<internal_error>
+	<executable>quartus_map.exe</executable>
+	<sub_system>MEM</sub_system>
+	<error>*** Fatal Error: Out of memory in module quartus_map.exe (5670 megabytes used)</error>
+	<date>Wed Jul 23 14:28:45 2014</date>
+	<version>Version 13.1.0 Build 162 10/23/2013 SJ Web Edition</version>
+</internal_error>
+
+<internal_error>
+	<executable>quartus_map.exe</executable>
+	<sub_system>MEM</sub_system>
+	<error>*** Fatal Error: Out of memory in module quartus_map.exe (5113 megabytes used)</error>
+	<date>Sun Aug 10 13:59:47 2014</date>
+	<version>Version 13.1.0 Build 162 10/23/2013 SJ Web Edition</version>
+</internal_error>
+
+<internal_error>
+	<executable>quartus_map.exe</executable>
+	<sub_system>MEM</sub_system>
+	<error>*** Fatal Error: Out of memory in module quartus_map.exe (5083 megabytes used)</error>
+	<date>Sun Aug 10 14:00:46 2014</date>
+	<version>Version 13.1.0 Build 162 10/23/2013 SJ Web Edition</version>
+</internal_error>
+

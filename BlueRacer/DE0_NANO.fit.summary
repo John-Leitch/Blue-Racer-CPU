@@ -1,0 +1,16 @@
+Fitter Status : Successful - Tue Aug 26 21:20:02 2014
+Quartus II 64-Bit Version : 13.1.0 Build 162 10/23/2013 SJ Web Edition
+Revision Name : DE0_NANO
+Top-level Entity Name : BlueRacer
+Family : Cyclone IV E
+Device : EP4CE22F17C6
+Timing Models : Final
+Total logic elements : 16,894 / 22,320 ( 76 % )
+    Total combinational functions : 15,376 / 22,320 ( 69 % )
+    Dedicated logic registers : 4,158 / 22,320 ( 19 % )
+Total registers : 4158
+Total pins : 27 / 154 ( 18 % )
+Total virtual pins : 0
+Total memory bits : 459,207 / 608,256 ( 75 % )
+Embedded Multiplier 9-bit elements : 6 / 132 ( 5 % )
+Total PLLs : 1 / 4 ( 25 % )
