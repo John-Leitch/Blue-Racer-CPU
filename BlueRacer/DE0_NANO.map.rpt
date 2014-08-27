@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DE0_NANO
-Tue Aug 26 21:16:07 2014
+Wed Aug 27 03:11:47 2014
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -132,15 +132,15 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Aug 26 21:16:06 2014      ;
+; Analysis & Synthesis Status        ; Successful - Wed Aug 27 03:11:46 2014      ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                      ; DE0_NANO                                   ;
 ; Top-level Entity Name              ; BlueRacer                                  ;
 ; Family                             ; Cyclone IV E                               ;
-; Total logic elements               ; 17,528                                     ;
-;     Total combinational functions  ; 15,376                                     ;
-;     Dedicated logic registers      ; 4,222                                      ;
-; Total registers                    ; 4222                                       ;
+; Total logic elements               ; 16,730                                     ;
+;     Total combinational functions  ; 14,579                                     ;
+;     Dedicated logic registers      ; 4,240                                      ;
+; Total registers                    ; 4240                                       ;
 ; Total pins                         ; 27                                         ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 459,207                                    ;
@@ -352,20 +352,20 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-----------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                       ;
 +---------------------------------------------+-----------------------------------------------------------------------------+
-; Estimated Total logic elements              ; 17,528                                                                      ;
+; Estimated Total logic elements              ; 16,730                                                                      ;
 ;                                             ;                                                                             ;
-; Total combinational functions               ; 15376                                                                       ;
+; Total combinational functions               ; 14579                                                                       ;
 ; Logic element usage by number of LUT inputs ;                                                                             ;
-;     -- 4 input functions                    ; 8886                                                                        ;
-;     -- 3 input functions                    ; 4914                                                                        ;
-;     -- <=2 input functions                  ; 1576                                                                        ;
+;     -- 4 input functions                    ; 8358                                                                        ;
+;     -- 3 input functions                    ; 4683                                                                        ;
+;     -- <=2 input functions                  ; 1538                                                                        ;
 ;                                             ;                                                                             ;
 ; Logic elements by mode                      ;                                                                             ;
-;     -- normal mode                          ; 11494                                                                       ;
+;     -- normal mode                          ; 10697                                                                       ;
 ;     -- arithmetic mode                      ; 3882                                                                        ;
 ;                                             ;                                                                             ;
-; Total registers                             ; 4222                                                                        ;
-;     -- Dedicated logic registers            ; 4222                                                                        ;
+; Total registers                             ; 4240                                                                        ;
+;     -- Dedicated logic registers            ; 4240                                                                        ;
 ;     -- I/O registers                        ; 0                                                                           ;
 ;                                             ;                                                                             ;
 ; I/O pins                                    ; 27                                                                          ;
@@ -375,8 +375,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;     -- PLLs                                 ; 1                                                                           ;
 ;                                             ;                                                                             ;
 ; Maximum fan-out node                        ; pll:inst|altpll:altpll_component|pll_altpll:auto_generated|wire_pll1_clk[0] ;
-; Maximum fan-out                             ; 4081                                                                        ;
-; Total fan-out                               ; 66362                                                                       ;
+; Maximum fan-out                             ; 4099                                                                        ;
+; Total fan-out                               ; 63616                                                                       ;
 ; Average fan-out                             ; 3.36                                                                        ;
 +---------------------------------------------+-----------------------------------------------------------------------------+
 
@@ -386,17 +386,17 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                                  ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                          ; Library Name ;
 +-------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |BlueRacer                                                  ; 15376 (0)         ; 4222 (0)     ; 459207      ; 6            ; 0       ; 3         ; 27   ; 0            ; |BlueRacer                                                                                                                                                                                                                                   ; work         ;
+; |BlueRacer                                                  ; 14579 (0)         ; 4240 (0)     ; 459207      ; 6            ; 0       ; 3         ; 27   ; 0            ; |BlueRacer                                                                                                                                                                                                                                   ; work         ;
 ;    |LcdLineWriter:inst9|                                    ; 106 (106)         ; 18 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BlueRacer|LcdLineWriter:inst9                                                                                                                                                                                                               ; work         ;
 ;    |LcdShiftRegister:inst1|                                 ; 27 (27)           ; 136 (136)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BlueRacer|LcdShiftRegister:inst1                                                                                                                                                                                                            ; work         ;
 ;    |LiquidCrystalDisplay:inst5|                             ; 173 (41)          ; 131 (32)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BlueRacer|LiquidCrystalDisplay:inst5                                                                                                                                                                                                        ; work         ;
 ;       |Delay:powerDelay|                                    ; 44 (44)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BlueRacer|LiquidCrystalDisplay:inst5|Delay:powerDelay                                                                                                                                                                                       ; work         ;
 ;       |Delay:pulseDelay|                                    ; 44 (44)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BlueRacer|LiquidCrystalDisplay:inst5|Delay:pulseDelay                                                                                                                                                                                       ; work         ;
 ;       |Delay:wakeupDelay|                                   ; 44 (44)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BlueRacer|LiquidCrystalDisplay:inst5|Delay:wakeupDelay                                                                                                                                                                                      ; work         ;
-;    |Mcu:inst11|                                             ; 15070 (0)         ; 3937 (0)     ; 459207      ; 6            ; 0       ; 3         ; 0    ; 0            ; |BlueRacer|Mcu:inst11                                                                                                                                                                                                                        ; work         ;
-;       |Cpu:cpu|                                             ; 14846 (12951)     ; 3785 (1801)  ; 455         ; 6            ; 0       ; 3         ; 0    ; 0            ; |BlueRacer|Mcu:inst11|Cpu:cpu                                                                                                                                                                                                                ; work         ;
+;    |Mcu:inst11|                                             ; 14273 (0)         ; 3955 (0)     ; 459207      ; 6            ; 0       ; 3         ; 0    ; 0            ; |BlueRacer|Mcu:inst11                                                                                                                                                                                                                        ; work         ;
+;       |Cpu:cpu|                                             ; 14025 (12123)     ; 3803 (1819)  ; 455         ; 6            ; 0       ; 3         ; 0    ; 0            ; |BlueRacer|Mcu:inst11|Cpu:cpu                                                                                                                                                                                                                ; work         ;
 ;          |Adder:adder|                                      ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BlueRacer|Mcu:inst11|Cpu:cpu|Adder:adder                                                                                                                                                                                                    ; work         ;
-;          |Ander:ander|                                      ; 29 (29)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BlueRacer|Mcu:inst11|Cpu:cpu|Ander:ander                                                                                                                                                                                                    ; work         ;
+;          |Ander:ander|                                      ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BlueRacer|Mcu:inst11|Cpu:cpu|Ander:ander                                                                                                                                                                                                    ; work         ;
 ;          |CrossDomainBuffer:buffer|                         ; 0 (0)             ; 34 (34)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BlueRacer|Mcu:inst11|Cpu:cpu|CrossDomainBuffer:buffer                                                                                                                                                                                       ; work         ;
 ;          |Divider:divider|                                  ; 1338 (0)          ; 1900 (0)     ; 455         ; 0            ; 0       ; 0         ; 0    ; 0            ; |BlueRacer|Mcu:inst11|Cpu:cpu|Divider:divider                                                                                                                                                                                                ; work         ;
 ;             |lpm_divide:divider|                            ; 1338 (0)          ; 1900 (0)     ; 455         ; 0            ; 0       ; 0         ; 0    ; 0            ; |BlueRacer|Mcu:inst11|Cpu:cpu|Divider:divider|lpm_divide:divider                                                                                                                                                                             ; work         ;
@@ -453,12 +453,12 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;          |Multiplier:multiplier|                            ; 28 (0)            ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |BlueRacer|Mcu:inst11|Cpu:cpu|Multiplier:multiplier                                                                                                                                                                                          ; work         ;
 ;             |lpm_mult:Mult0|                                ; 28 (0)            ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |BlueRacer|Mcu:inst11|Cpu:cpu|Multiplier:multiplier|lpm_mult:Mult0                                                                                                                                                                           ; work         ;
 ;                |mult_7dt:auto_generated|                    ; 28 (28)           ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |BlueRacer|Mcu:inst11|Cpu:cpu|Multiplier:multiplier|lpm_mult:Mult0|mult_7dt:auto_generated                                                                                                                                                   ; work         ;
-;          |Orer:orer|                                        ; 29 (29)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BlueRacer|Mcu:inst11|Cpu:cpu|Orer:orer                                                                                                                                                                                                      ; work         ;
+;          |Orer:orer|                                        ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BlueRacer|Mcu:inst11|Cpu:cpu|Orer:orer                                                                                                                                                                                                      ; work         ;
 ;          |RightShifter:rightShifter|                        ; 166 (166)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BlueRacer|Mcu:inst11|Cpu:cpu|RightShifter:rightShifter                                                                                                                                                                                      ; work         ;
 ;          |SpiSlave:spi|                                     ; 44 (44)           ; 50 (50)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BlueRacer|Mcu:inst11|Cpu:cpu|SpiSlave:spi                                                                                                                                                                                                   ; work         ;
 ;          |Subtracter:subtracter|                            ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BlueRacer|Mcu:inst11|Cpu:cpu|Subtracter:subtracter                                                                                                                                                                                          ; work         ;
-;          |Xorer:xorer|                                      ; 31 (31)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BlueRacer|Mcu:inst11|Cpu:cpu|Xorer:xorer                                                                                                                                                                                                    ; work         ;
-;       |MemoryController:memory|                             ; 224 (177)         ; 152 (149)    ; 458752      ; 0            ; 0       ; 0         ; 0    ; 0            ; |BlueRacer|Mcu:inst11|MemoryController:memory                                                                                                                                                                                                ; work         ;
+;          |Xorer:xorer|                                      ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BlueRacer|Mcu:inst11|Cpu:cpu|Xorer:xorer                                                                                                                                                                                                    ; work         ;
+;       |MemoryController:memory|                             ; 248 (201)         ; 152 (149)    ; 458752      ; 0            ; 0       ; 0         ; 0    ; 0            ; |BlueRacer|Mcu:inst11|MemoryController:memory                                                                                                                                                                                                ; work         ;
 ;          |simple_dual_port_ram_single_clock:memory|         ; 47 (0)            ; 3 (0)        ; 458752      ; 0            ; 0       ; 0         ; 0    ; 0            ; |BlueRacer|Mcu:inst11|MemoryController:memory|simple_dual_port_ram_single_clock:memory                                                                                                                                                       ; work         ;
 ;             |altsyncram:ram_rtl_0|                          ; 47 (0)            ; 3 (0)        ; 458752      ; 0            ; 0       ; 0         ; 0    ; 0            ; |BlueRacer|Mcu:inst11|MemoryController:memory|simple_dual_port_ram_single_clock:memory|altsyncram:ram_rtl_0                                                                                                                                  ; work         ;
 ;                |altsyncram_s6h1:auto_generated|             ; 47 (0)            ; 3 (3)        ; 458752      ; 0            ; 0       ; 0         ; 0    ; 0            ; |BlueRacer|Mcu:inst11|MemoryController:memory|simple_dual_port_ram_single_clock:memory|altsyncram:ram_rtl_0|altsyncram_s6h1:auto_generated                                                                                                   ; work         ;
@@ -889,19 +889,19 @@ Encoding Type:  One-Hot
 ; Mcu:inst11|Cpu:cpu|_spiPageNumber[0..31]                         ; Stuck at GND due to stuck port data_in                     ;
 ; Mcu:inst11|MemoryController:memory|write1Active                  ; Stuck at GND due to stuck port data_in                     ;
 ; Mcu:inst11|Cpu:cpu|writeInstructionAddress[16..30]               ; Merged with Mcu:inst11|Cpu:cpu|writeInstructionAddress[31] ;
-; Mcu:inst11|Cpu:cpu|writeInstructionBuffer[37]                    ; Merged with Mcu:inst11|Cpu:cpu|writeInstructionBuffer[38]  ;
-; Mcu:inst11|Cpu:cpu|writeInstructionBuffer[30..32,34,35]          ; Merged with Mcu:inst11|Cpu:cpu|writeInstructionBuffer[36]  ;
-; Mcu:inst11|Cpu:cpu|writeInstructionBuffer[13,25..28]             ; Merged with Mcu:inst11|Cpu:cpu|writeInstructionBuffer[29]  ;
-; Mcu:inst11|Cpu:cpu|writeInstructionBuffer[7,20..23]              ; Merged with Mcu:inst11|Cpu:cpu|writeInstructionBuffer[24]  ;
-; Mcu:inst11|Cpu:cpu|writeInstructionBuffer[1,3,5,16..18]          ; Merged with Mcu:inst11|Cpu:cpu|writeInstructionBuffer[19]  ;
-; Mcu:inst11|Cpu:cpu|writeInstructionBuffer[14]                    ; Merged with Mcu:inst11|Cpu:cpu|writeInstructionBuffer[15]  ;
-; Mcu:inst11|Cpu:cpu|writeInstructionBuffer[6,8..11]               ; Merged with Mcu:inst11|Cpu:cpu|writeInstructionBuffer[12]  ;
-; Mcu:inst11|Cpu:cpu|writeInstructionBuffer[0,2]                   ; Merged with Mcu:inst11|Cpu:cpu|writeInstructionBuffer[4]   ;
-; Mcu:inst11|Cpu:cpu|writeInstructionBuffer[33,38]                 ; Merged with Mcu:inst11|Cpu:cpu|writeInstructionBuffer[39]  ;
-; Mcu:inst11|Cpu:cpu|writeInstructionBuffer[29]                    ; Merged with Mcu:inst11|Cpu:cpu|writeInstructionBuffer[36]  ;
-; Mcu:inst11|Cpu:cpu|writeInstructionBuffer[15,19]                 ; Merged with Mcu:inst11|Cpu:cpu|writeInstructionBuffer[24]  ;
-; Mcu:inst11|Cpu:cpu|writeInstructionBuffer[4,12,24]               ; Merged with Mcu:inst11|Cpu:cpu|writeInstructionBuffer[36]  ;
+; Mcu:inst11|Cpu:cpu|writeInstructionBuffer[37]                    ; Merged with Mcu:inst11|Cpu:cpu|writeInstructionBuffer[39]  ;
+; Mcu:inst11|Cpu:cpu|writeInstructionBuffer[35]                    ; Merged with Mcu:inst11|Cpu:cpu|writeInstructionBuffer[36]  ;
+; Mcu:inst11|Cpu:cpu|writeInstructionBuffer[26..28,30]             ; Merged with Mcu:inst11|Cpu:cpu|writeInstructionBuffer[31]  ;
+; Mcu:inst11|Cpu:cpu|writeInstructionBuffer[13,20..22]             ; Merged with Mcu:inst11|Cpu:cpu|writeInstructionBuffer[23]  ;
+; Mcu:inst11|Cpu:cpu|writeInstructionBuffer[17]                    ; Merged with Mcu:inst11|Cpu:cpu|writeInstructionBuffer[19]  ;
+; Mcu:inst11|Cpu:cpu|writeInstructionBuffer[7]                     ; Merged with Mcu:inst11|Cpu:cpu|writeInstructionBuffer[15]  ;
+; Mcu:inst11|Cpu:cpu|writeInstructionBuffer[8,10]                  ; Merged with Mcu:inst11|Cpu:cpu|writeInstructionBuffer[11]  ;
+; Mcu:inst11|Cpu:cpu|writeInstructionBuffer[6]                     ; Merged with Mcu:inst11|Cpu:cpu|writeInstructionBuffer[9]   ;
+; Mcu:inst11|Cpu:cpu|writeInstructionBuffer[11]                    ; Merged with Mcu:inst11|Cpu:cpu|writeInstructionBuffer[15]  ;
 ; Mcu:inst11|Cpu:cpu|_errorCode[3..9,11..27,31]                    ; Merged with Mcu:inst11|Cpu:cpu|_errorCode[10]              ;
+; Mcu:inst11|Cpu:cpu|writeInstructionBuffer[23,31]                 ; Merged with Mcu:inst11|Cpu:cpu|writeInstructionBuffer[15]  ;
+; Mcu:inst11|Cpu:cpu|writeInstructionBuffer[36]                    ; Merged with Mcu:inst11|Cpu:cpu|writeInstructionBuffer[16]  ;
+; Mcu:inst11|Cpu:cpu|writeInstructionBuffer[9]                     ; Merged with Mcu:inst11|Cpu:cpu|writeInstructionBuffer[19]  ;
 ; Mcu:inst11|Cpu:cpu|writeInstructionAddress[31]                   ; Stuck at GND due to stuck port data_in                     ;
 ; Mcu:inst11|MemoryController:memory|_read2State.01                ; Lost fanout                                                ;
 ; Mcu:inst11|MemoryController:memory|_read2State.10                ; Lost fanout                                                ;
@@ -1035,7 +1035,7 @@ Encoding Type:  One-Hot
 ; Mcu:inst11|Cpu:cpu|write4Address[16..31]                         ; Lost fanout                                                ;
 ; Mcu:inst11|Cpu:cpu|read4Address[16..31]                          ; Lost fanout                                                ;
 ; Mcu:inst11|MemoryController:memory|_readAddressInternal[16..31]  ; Lost fanout                                                ;
-; Total Number of Removed Registers = 305                          ;                                                            ;
+; Total Number of Removed Registers = 287                          ;                                                            ;
 +------------------------------------------------------------------+------------------------------------------------------------+
 
 
@@ -1100,12 +1100,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 4222  ;
-; Number of registers using Synchronous Clear  ; 590   ;
-; Number of registers using Synchronous Load   ; 127   ;
+; Total registers                              ; 4240  ;
+; Number of registers using Synchronous Clear  ; 606   ;
+; Number of registers using Synchronous Load   ; 150   ;
 ; Number of registers using Asynchronous Clear ; 136   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1759  ;
+; Number of registers using Clock Enable       ; 1799  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -1115,68 +1115,68 @@ Encoding Type:  One-Hot
 +--------------------------------------------+---------+
 ; Inverted Register                          ; Fan out ;
 +--------------------------------------------+---------+
-; Mcu:inst11|Cpu:cpu|pageInfo[86][1]         ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[90][1]         ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[82][1]         ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[94][1]         ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[106][1]        ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[102][1]        ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[98][1]         ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[110][1]        ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[74][1]         ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[70][1]         ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[66][1]         ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[78][1]         ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[118][1]        ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[122][1]        ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[114][1]        ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[126][1]        ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[105][1]        ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[89][1]         ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[73][1]         ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[121][1]        ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[85][1]         ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[101][1]        ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[69][1]         ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[117][1]        ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[97][1]         ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[81][1]         ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[65][1]         ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[113][1]        ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[93][1]         ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[101][1]        ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[105][1]        ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[97][1]         ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[109][1]        ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[69][1]         ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[73][1]         ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[65][1]         ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[77][1]         ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[121][1]        ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[117][1]        ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[113][1]        ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[125][1]        ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[104][1]        ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[86][1]         ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[102][1]        ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[70][1]         ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[118][1]        ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[106][1]        ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[90][1]         ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[74][1]         ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[122][1]        ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[98][1]         ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[82][1]         ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[66][1]         ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[114][1]        ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[94][1]         ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[110][1]        ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[78][1]         ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[126][1]        ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[100][1]        ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[104][1]        ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[96][1]         ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[108][1]        ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[84][1]         ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[88][1]         ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[84][1]         ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[80][1]         ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[92][1]         ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[72][1]         ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[68][1]         ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[72][1]         ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[64][1]         ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[76][1]         ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[116][1]        ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[120][1]        ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[116][1]        ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[112][1]        ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[124][1]        ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[103][1]        ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[107][1]        ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[103][1]        ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[99][1]         ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[111][1]        ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[91][1]         ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[87][1]         ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[91][1]         ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[83][1]         ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[95][1]         ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[71][1]         ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[75][1]         ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[71][1]         ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[67][1]         ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[79][1]         ; 2       ;
-; Mcu:inst11|Cpu:cpu|pageInfo[123][1]        ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[119][1]        ; 2       ;
+; Mcu:inst11|Cpu:cpu|pageInfo[123][1]        ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[115][1]        ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[127][1]        ; 2       ;
 ; Mcu:inst11|Cpu:cpu|pageInfo[165][1]        ; 2       ;
@@ -1247,348 +1247,359 @@ Encoding Type:  One-Hot
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |BlueRacer|LiquidCrystalDisplay:inst5|Delay:wakeupDelay|count[29]       ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |BlueRacer|LiquidCrystalDisplay:inst5|Delay:powerDelay|count[18]        ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |BlueRacer|LiquidCrystalDisplay:inst5|Delay:pulseDelay|count[30]        ;
-; 3:1                ; 29 bits   ; 58 LEs        ; 29 LEs               ; 29 LEs                 ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|misoBuffer[25]                            ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|SpiSlave:spi|bitNumber[4]                 ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_errorCode[29]                            ;
-; 6:1                ; 16 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_programmerState[11]                      ;
-; 6:1                ; 16 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|writeInstructionAddress[8]                ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|writeInstructionBuffer[36]                ;
-; 11:1               ; 32 bits   ; 224 LEs       ; 64 LEs               ; 160 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|MemoryController:memory|_writeAddressInternal[14] ;
-; 11:1               ; 4 bits    ; 28 LEs        ; 12 LEs               ; 16 LEs                 ; Yes        ; |BlueRacer|Mcu:inst11|MemoryController:memory|_dataIn[0]                ;
-; 11:1               ; 4 bits    ; 28 LEs        ; 16 LEs               ; 12 LEs                 ; Yes        ; |BlueRacer|Mcu:inst11|MemoryController:memory|_dataIn[5]                ;
-; 252:1              ; 32 bits   ; 5376 LEs      ; 32 LEs               ; 5344 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|subtracterB[28]                           ;
-; 252:1              ; 32 bits   ; 5376 LEs      ; 32 LEs               ; 5344 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|dividerB[15]                              ;
-; 252:1              ; 32 bits   ; 5376 LEs      ; 32 LEs               ; 5344 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|anderB[13]                                ;
-; 252:1              ; 32 bits   ; 5376 LEs      ; 32 LEs               ; 5344 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|orerB[26]                                 ;
-; 252:1              ; 32 bits   ; 5376 LEs      ; 32 LEs               ; 5344 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|xorerB[5]                                 ;
-; 252:1              ; 32 bits   ; 5376 LEs      ; 32 LEs               ; 5344 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|leftShifterB[31]                          ;
-; 252:1              ; 32 bits   ; 5376 LEs      ; 32 LEs               ; 5344 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|rightShifterB[29]                         ;
-; 14:1               ; 32 bits   ; 288 LEs       ; 64 LEs               ; 224 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|MemoryController:memory|_readAddressInternal[5]   ;
-; 266:1              ; 32 bits   ; 5664 LEs      ; 192 LEs              ; 5472 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|subtracterA[22]                           ;
-; 266:1              ; 32 bits   ; 5664 LEs      ; 192 LEs              ; 5472 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|dividerA[6]                               ;
-; 266:1              ; 32 bits   ; 5664 LEs      ; 192 LEs              ; 5472 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|anderA[3]                                 ;
-; 266:1              ; 32 bits   ; 5664 LEs      ; 192 LEs              ; 5472 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|orerA[9]                                  ;
-; 266:1              ; 32 bits   ; 5664 LEs      ; 192 LEs              ; 5472 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|xorerA[9]                                 ;
-; 266:1              ; 32 bits   ; 5664 LEs      ; 192 LEs              ; 5472 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|leftShifterA[16]                          ;
-; 266:1              ; 32 bits   ; 5664 LEs      ; 192 LEs              ; 5472 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|rightShifterA[7]                          ;
-; 259:1              ; 32 bits   ; 5504 LEs      ; 32 LEs               ; 5472 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|adderB[17]                                ;
-; 281:1              ; 6 bits    ; 1122 LEs      ; 12 LEs               ; 1110 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|out0[6]                                   ;
-; 155:1              ; 6 bits    ; 618 LEs       ; 12 LEs               ; 606 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|out2[2]                                   ;
-; 155:1              ; 2 bits    ; 206 LEs       ; 4 LEs                ; 202 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|out2[0]                                   ;
-; 155:1              ; 2 bits    ; 206 LEs       ; 4 LEs                ; 202 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|out1[0]                                   ;
-; 155:1              ; 2 bits    ; 206 LEs       ; 4 LEs                ; 202 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|out0[0]                                   ;
-; 273:1              ; 32 bits   ; 5824 LEs      ; 192 LEs              ; 5632 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|adderA[1]                                 ;
-; 536:1              ; 32 bits   ; 11424 LEs     ; 64 LEs               ; 11360 LEs              ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|write4Address[13]                         ;
-; 554:1              ; 30 bits   ; 11070 LEs     ; 90 LEs               ; 10980 LEs              ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|write4Buffer[31]                          ;
-; 299:1              ; 31 bits   ; 6169 LEs      ; 372 LEs              ; 5797 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|read4Address[20]                          ;
-; 774:1              ; 2 bits    ; 1032 LEs      ; 44 LEs               ; 988 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_errorCode[1]                             ;
-; 777:1              ; 2 bits    ; 1036 LEs      ; 40 LEs               ; 996 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_errorCode[30]                            ;
-; 306:1              ; 32 bits   ; 6528 LEs      ; 0 LEs                ; 6528 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_programCounter[6]                        ;
-; 353:1              ; 3 bits    ; 705 LEs       ; 30 LEs               ; 675 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r1[7]                                    ;
-; 337:1              ; 32 bits   ; 7168 LEs      ; 64 LEs               ; 7104 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|instructionAddress[17]                    ;
-; 233:1              ; 5 bits    ; 775 LEs       ; 50 LEs               ; 725 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r7[3]                                    ;
-; 233:1              ; 5 bits    ; 775 LEs       ; 50 LEs               ; 725 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r6[3]                                    ;
-; 233:1              ; 5 bits    ; 775 LEs       ; 50 LEs               ; 725 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r5[6]                                    ;
-; 233:1              ; 5 bits    ; 775 LEs       ; 50 LEs               ; 725 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r4[6]                                    ;
-; 233:1              ; 5 bits    ; 775 LEs       ; 50 LEs               ; 725 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r3[6]                                    ;
-; 233:1              ; 5 bits    ; 775 LEs       ; 50 LEs               ; 725 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r2[6]                                    ;
-; 233:1              ; 2 bits    ; 310 LEs       ; 20 LEs               ; 290 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r1[3]                                    ;
-; 234:1              ; 24 bits   ; 3744 LEs      ; 216 LEs              ; 3528 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r7[28]                                   ;
-; 234:1              ; 24 bits   ; 3744 LEs      ; 216 LEs              ; 3528 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r6[11]                                   ;
-; 234:1              ; 24 bits   ; 3744 LEs      ; 216 LEs              ; 3528 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r5[8]                                    ;
-; 234:1              ; 24 bits   ; 3744 LEs      ; 216 LEs              ; 3528 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r4[28]                                   ;
-; 234:1              ; 24 bits   ; 3744 LEs      ; 216 LEs              ; 3528 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r3[20]                                   ;
-; 234:1              ; 24 bits   ; 3744 LEs      ; 216 LEs              ; 3528 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r2[15]                                   ;
-; 234:1              ; 24 bits   ; 3744 LEs      ; 216 LEs              ; 3528 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r1[12]                                   ;
-; 247:1              ; 5 bits    ; 820 LEs       ; 55 LEs               ; 765 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r0[7]                                    ;
-; 248:1              ; 24 bits   ; 3960 LEs      ; 240 LEs              ; 3720 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r0[23]                                   ;
-; 252:1              ; 32 bits   ; 5376 LEs      ; 32 LEs               ; 5344 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|multiplierB[27]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[223][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[222][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[221][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[220][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[219][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[218][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[217][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[216][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[215][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[214][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[213][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[212][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[211][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[210][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[209][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[208][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[207][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[206][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[205][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[204][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[203][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[202][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[201][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[200][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[199][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[198][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[197][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[196][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[195][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[194][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[193][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[192][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[191][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[190][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[189][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[188][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[187][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[186][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[185][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[184][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[183][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[182][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[181][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[180][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[179][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[178][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[177][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[176][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[175][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[174][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[173][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[172][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[171][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[170][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[169][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[168][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[167][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[166][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[165][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[164][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[163][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[162][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[161][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[160][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[159][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[158][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[157][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[156][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[155][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[154][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[153][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[152][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[151][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[150][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[149][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[148][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[147][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[146][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[145][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[144][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[143][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[142][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[141][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[140][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[139][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[138][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[137][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[136][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[135][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[134][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[133][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[132][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[131][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[130][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[129][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[128][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[127][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[126][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[125][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[124][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[123][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[122][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[121][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[120][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[119][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[118][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[117][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[116][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[115][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[114][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[113][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[112][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[111][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[110][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[109][1]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[108][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[107][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[106][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[105][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[104][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[103][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[102][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[101][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[100][0]                          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[99][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[98][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[97][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[96][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[95][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[94][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[93][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[92][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[91][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[90][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[89][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[88][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[87][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[86][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[85][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[84][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[83][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[82][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[81][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[80][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[79][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[78][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[77][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[76][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[75][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[74][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[73][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[72][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[71][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[70][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[69][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[68][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[67][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[66][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[65][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[64][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[63][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[62][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[61][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[60][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[59][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[58][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[57][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[56][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[55][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[54][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[53][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[52][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[51][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[50][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[49][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[48][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[47][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[46][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[45][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[44][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[43][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[42][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[41][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[40][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[39][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[38][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[37][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[36][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[35][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[34][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[33][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[32][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[31][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[30][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[29][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[28][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[27][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[26][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[25][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[24][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[23][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[22][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[21][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[20][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[19][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[18][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[17][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[16][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[15][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[14][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[13][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[12][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[11][1]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[10][0]                           ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[9][1]                            ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[8][0]                            ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[7][1]                            ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[6][1]                            ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[5][1]                            ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[4][0]                            ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[3][1]                            ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[2][0]                            ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[1][0]                            ;
-; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[0][1]                            ;
-; 266:1              ; 32 bits   ; 5664 LEs      ; 192 LEs              ; 5472 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|multiplierA[22]                           ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|MemoryController:memory|_write1State              ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |BlueRacer|LiquidCrystalDisplay:inst5|commandState                      ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|_write4Stage                              ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|Selector1370                              ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|LeftShifter:leftShifter|ShiftLeft0        ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|RightShifter:rightShifter|ShiftRight0     ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|_commandState                             ;
-; 4:1                ; 29 bits   ; 58 LEs        ; 58 LEs               ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|misoBuffer                                ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|LeftShifter:leftShifter|ShiftLeft0        ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|RightShifter:rightShifter|ShiftRight0     ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|LeftShifter:leftShifter|ShiftLeft0        ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|RightShifter:rightShifter|ShiftRight0     ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|MemoryController:memory|_write4State              ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |BlueRacer|Mcu:inst11|MemoryController:memory|_write4State              ;
-; 6:1                ; 30 bits   ; 120 LEs       ; 30 LEs               ; 90 LEs                 ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|Selector937                               ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|Selector954                               ;
-; 17:1               ; 32 bits   ; 352 LEs       ; 32 LEs               ; 320 LEs                ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|Selector900                               ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|LeftShifter:leftShifter|ShiftLeft0        ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|RightShifter:rightShifter|ShiftRight0     ;
-; 7:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|MemoryController:memory|_read4State               ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |BlueRacer|Mcu:inst11|MemoryController:memory|_read4State               ;
-; 64:1               ; 8 bits    ; 336 LEs       ; 88 LEs               ; 248 LEs                ; No         ; |BlueRacer|LcdLineWriter:inst9|Mux7                                     ;
-; 6:1                ; 18 bits   ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|Selector3070                              ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|LeftShifter:leftShifter|ShiftLeft0        ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|RightShifter:rightShifter|ShiftRight0     ;
-; 7:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |BlueRacer|LiquidCrystalDisplay:inst5|Selector33                        ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |BlueRacer|Mcu:inst11|MemoryController:memory|_write5State              ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |BlueRacer|Mcu:inst11|MemoryController:memory|_write5State              ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|Selector1372                              ;
-; 8:1                ; 31 bits   ; 155 LEs       ; 155 LEs              ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|Selector151                               ;
-; 8:1                ; 32 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|Selector1509                              ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|Selector3077                              ;
-; 7:1                ; 5 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|Selector3054                              ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |BlueRacer|LiquidCrystalDisplay:inst5|commandState                      ;
-; 9:1                ; 5 bits    ; 30 LEs        ; 25 LEs               ; 5 LEs                  ; No         ; |BlueRacer|Mcu:inst11|MemoryController:memory|_read5State               ;
-; 9:1                ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |BlueRacer|Mcu:inst11|MemoryController:memory|_read5State               ;
-; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|_gotoStage                                ;
-; 10:1               ; 3 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|_returnStage                              ;
-; 10:1               ; 3 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|_write4Stage                              ;
-; 10:1               ; 3 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|_popStage                                 ;
-; 27:1               ; 2 bits    ; 36 LEs        ; 2 LEs                ; 34 LEs                 ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|leftShifterStage                          ;
-; 263:1              ; 32 bits   ; 5600 LEs      ; 32 LEs               ; 5568 LEs               ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|dividerStage                              ;
-; 263:1              ; 2 bits    ; 350 LEs       ; 2 LEs                ; 348 LEs                ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|multiplierStage                           ;
-; 263:1              ; 2 bits    ; 350 LEs       ; 2 LEs                ; 348 LEs                ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|subtracterStage                           ;
-; 28:1               ; 2 bits    ; 36 LEs        ; 2 LEs                ; 34 LEs                 ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|rightShifterStage                         ;
-; 28:1               ; 2 bits    ; 36 LEs        ; 2 LEs                ; 34 LEs                 ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|xorerStage                                ;
-; 28:1               ; 2 bits    ; 36 LEs        ; 2 LEs                ; 34 LEs                 ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|orerStage                                 ;
-; 28:1               ; 2 bits    ; 36 LEs        ; 2 LEs                ; 34 LEs                 ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|anderStage                                ;
-; 14:1               ; 2 bits    ; 18 LEs        ; 4 LEs                ; 14 LEs                 ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|_read4Stage                               ;
-; 264:1              ; 2 bits    ; 352 LEs       ; 4 LEs                ; 348 LEs                ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|_callStage                                ;
-; 264:1              ; 2 bits    ; 352 LEs       ; 4 LEs                ; 348 LEs                ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|adderStage                                ;
-; 264:1              ; 2 bits    ; 352 LEs       ; 4 LEs                ; 348 LEs                ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|_pushStage                                ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |BlueRacer|LiquidCrystalDisplay:inst5|Delay:wakeupDelay|count[29]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |BlueRacer|LiquidCrystalDisplay:inst5|Delay:powerDelay|count[20]       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |BlueRacer|LiquidCrystalDisplay:inst5|Delay:pulseDelay|count[15]       ;
+; 3:1                ; 29 bits   ; 58 LEs        ; 29 LEs               ; 29 LEs                 ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|misoBuffer[14]                           ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|SpiSlave:spi|bitNumber[6]                ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_errorCode[28]                           ;
+; 6:1                ; 16 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_programmerState[10]                     ;
+; 6:1                ; 16 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|writeInstructionAddress[4]               ;
+; 6:1                ; 20 bits   ; 80 LEs        ; 0 LEs                ; 80 LEs                 ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|writeInstructionBuffer[39]               ;
+; 11:1               ; 32 bits   ; 224 LEs       ; 64 LEs               ; 160 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|MemoryController:memory|_writeAddressInternal[0] ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 10 LEs               ; 4 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|MemoryController:memory|_dataIn[5]               ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 10 LEs               ; 4 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|MemoryController:memory|_dataIn[3]               ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 10 LEs               ; 4 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|MemoryController:memory|_dataIn[4]               ;
+; 252:1              ; 32 bits   ; 5376 LEs      ; 32 LEs               ; 5344 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|subtracterB[1]                           ;
+; 252:1              ; 32 bits   ; 5376 LEs      ; 32 LEs               ; 5344 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|dividerB[3]                              ;
+; 252:1              ; 32 bits   ; 5376 LEs      ; 32 LEs               ; 5344 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|anderB[21]                               ;
+; 252:1              ; 32 bits   ; 5376 LEs      ; 32 LEs               ; 5344 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|orerB[17]                                ;
+; 252:1              ; 32 bits   ; 5376 LEs      ; 32 LEs               ; 5344 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|xorerB[0]                                ;
+; 252:1              ; 32 bits   ; 5376 LEs      ; 32 LEs               ; 5344 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|leftShifterB[4]                          ;
+; 252:1              ; 32 bits   ; 5376 LEs      ; 32 LEs               ; 5344 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|rightShifterB[13]                        ;
+; 14:1               ; 32 bits   ; 288 LEs       ; 64 LEs               ; 224 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|MemoryController:memory|_readAddressInternal[25] ;
+; 266:1              ; 32 bits   ; 5664 LEs      ; 192 LEs              ; 5472 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|subtracterA[9]                           ;
+; 266:1              ; 32 bits   ; 5664 LEs      ; 192 LEs              ; 5472 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|dividerA[3]                              ;
+; 266:1              ; 32 bits   ; 5664 LEs      ; 192 LEs              ; 5472 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|anderA[28]                               ;
+; 266:1              ; 32 bits   ; 5664 LEs      ; 192 LEs              ; 5472 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|orerA[14]                                ;
+; 266:1              ; 32 bits   ; 5664 LEs      ; 192 LEs              ; 5472 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|xorerA[8]                                ;
+; 266:1              ; 32 bits   ; 5664 LEs      ; 192 LEs              ; 5472 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|leftShifterA[21]                         ;
+; 266:1              ; 32 bits   ; 5664 LEs      ; 192 LEs              ; 5472 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|rightShifterA[6]                         ;
+; 259:1              ; 31 bits   ; 5332 LEs      ; 31 LEs               ; 5301 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|adderB[4]                                ;
+; 281:1              ; 4 bits    ; 748 LEs       ; 8 LEs                ; 740 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|out0[7]                                  ;
+; 281:1              ; 2 bits    ; 374 LEs       ; 4 LEs                ; 370 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|out0[3]                                  ;
+; 155:1              ; 4 bits    ; 412 LEs       ; 8 LEs                ; 404 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|out2[7]                                  ;
+; 155:1              ; 4 bits    ; 412 LEs       ; 8 LEs                ; 404 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|out2[2]                                  ;
+; 155:1              ; 2 bits    ; 206 LEs       ; 4 LEs                ; 202 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|out1[0]                                  ;
+; 155:1              ; 2 bits    ; 206 LEs       ; 4 LEs                ; 202 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|out0[1]                                  ;
+; 273:1              ; 32 bits   ; 5824 LEs      ; 192 LEs              ; 5632 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|adderA[29]                               ;
+; 536:1              ; 32 bits   ; 11424 LEs     ; 64 LEs               ; 11360 LEs              ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|write4Address[3]                         ;
+; 554:1              ; 31 bits   ; 11439 LEs     ; 93 LEs               ; 11346 LEs              ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|write4Buffer[22]                         ;
+; 299:1              ; 4 bits    ; 796 LEs       ; 48 LEs               ; 748 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|read4Address[4]                          ;
+; 299:1              ; 28 bits   ; 5572 LEs      ; 336 LEs              ; 5236 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|read4Address[14]                         ;
+; 774:1              ; 2 bits    ; 1032 LEs      ; 44 LEs               ; 988 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_errorCode[1]                            ;
+; 777:1              ; 2 bits    ; 1036 LEs      ; 40 LEs               ; 996 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_errorCode[2]                            ;
+; 306:1              ; 32 bits   ; 6528 LEs      ; 0 LEs                ; 6528 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_programCounter[27]                      ;
+; 337:1              ; 32 bits   ; 7168 LEs      ; 64 LEs               ; 7104 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|instructionAddress[4]                    ;
+; 348:1              ; 3 bits    ; 696 LEs       ; 30 LEs               ; 666 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r1[6]                                   ;
+; 234:1              ; 24 bits   ; 3744 LEs      ; 216 LEs              ; 3528 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r7[26]                                  ;
+; 234:1              ; 24 bits   ; 3744 LEs      ; 216 LEs              ; 3528 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r6[17]                                  ;
+; 234:1              ; 24 bits   ; 3744 LEs      ; 216 LEs              ; 3528 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r5[9]                                   ;
+; 234:1              ; 24 bits   ; 3744 LEs      ; 216 LEs              ; 3528 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r4[19]                                  ;
+; 234:1              ; 24 bits   ; 3744 LEs      ; 216 LEs              ; 3528 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r3[26]                                  ;
+; 234:1              ; 24 bits   ; 3744 LEs      ; 216 LEs              ; 3528 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r2[29]                                  ;
+; 234:1              ; 24 bits   ; 3744 LEs      ; 216 LEs              ; 3528 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r1[19]                                  ;
+; 228:1              ; 4 bits    ; 608 LEs       ; 40 LEs               ; 568 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r7[5]                                   ;
+; 228:1              ; 4 bits    ; 608 LEs       ; 40 LEs               ; 568 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r6[5]                                   ;
+; 228:1              ; 4 bits    ; 608 LEs       ; 40 LEs               ; 568 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r5[7]                                   ;
+; 228:1              ; 4 bits    ; 608 LEs       ; 40 LEs               ; 568 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r4[7]                                   ;
+; 228:1              ; 4 bits    ; 608 LEs       ; 40 LEs               ; 568 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r3[6]                                   ;
+; 228:1              ; 4 bits    ; 608 LEs       ; 40 LEs               ; 568 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r2[7]                                   ;
+; 228:1              ; 4 bits    ; 608 LEs       ; 40 LEs               ; 568 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r7[3]                                   ;
+; 228:1              ; 4 bits    ; 608 LEs       ; 40 LEs               ; 568 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r6[0]                                   ;
+; 228:1              ; 4 bits    ; 608 LEs       ; 40 LEs               ; 568 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r5[1]                                   ;
+; 228:1              ; 4 bits    ; 608 LEs       ; 40 LEs               ; 568 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r4[1]                                   ;
+; 228:1              ; 4 bits    ; 608 LEs       ; 40 LEs               ; 568 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r3[2]                                   ;
+; 228:1              ; 4 bits    ; 608 LEs       ; 40 LEs               ; 568 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r2[0]                                   ;
+; 228:1              ; 4 bits    ; 608 LEs       ; 40 LEs               ; 568 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r1[2]                                   ;
+; 228:1              ; 2 bits    ; 304 LEs       ; 20 LEs               ; 284 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r0[1]                                   ;
+; 248:1              ; 24 bits   ; 3960 LEs      ; 240 LEs              ; 3720 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r0[23]                                  ;
+; 242:1              ; 4 bits    ; 644 LEs       ; 44 LEs               ; 600 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r0[5]                                   ;
+; 242:1              ; 2 bits    ; 322 LEs       ; 22 LEs               ; 300 LEs                ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|_r0[3]                                   ;
+; 252:1              ; 32 bits   ; 5376 LEs      ; 32 LEs               ; 5344 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|multiplierB[14]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[223][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[222][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[221][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[220][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[219][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[218][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[217][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[216][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[215][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[214][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[213][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[212][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[211][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[210][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[209][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[208][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[207][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[206][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[205][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[204][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[203][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[202][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[201][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[200][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[199][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[198][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[197][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[196][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[195][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[194][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[193][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[192][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[191][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[190][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[189][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[188][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[187][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[186][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[185][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[184][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[183][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[182][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[181][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[180][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[179][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[178][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[177][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[176][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[175][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[174][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[173][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[172][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[171][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[170][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[169][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[168][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[167][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[166][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[165][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[164][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[163][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[162][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[161][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[160][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[159][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[158][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[157][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[156][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[155][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[154][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[153][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[152][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[151][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[150][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[149][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[148][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[147][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[146][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[145][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[144][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[143][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[142][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[141][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[140][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[139][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[138][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[137][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[136][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[135][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[134][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[133][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[132][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[131][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[130][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[129][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[128][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[127][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[126][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[125][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[124][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[123][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[122][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[121][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[120][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[119][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[118][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[117][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[116][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[115][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[114][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[113][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[112][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[111][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[110][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[109][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[108][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[107][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[106][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[105][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[104][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[103][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[102][0]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[101][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[100][1]                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[99][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[98][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[97][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[96][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[95][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[94][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[93][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[92][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[91][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[90][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[89][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[88][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[87][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[86][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[85][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[84][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[83][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[82][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[81][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[80][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[79][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[78][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[77][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[76][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[75][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[74][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[73][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[72][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[71][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[70][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[69][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[68][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[67][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[66][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[65][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[64][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[63][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[62][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[61][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[60][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[59][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[58][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[57][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[56][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[55][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[54][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[53][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[52][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[51][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[50][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[49][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[48][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[47][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[46][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[45][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[44][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[43][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[42][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[41][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[40][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[39][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[38][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[37][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[36][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[35][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[34][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[33][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[32][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[31][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[30][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[29][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[28][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[27][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[26][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[25][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[24][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[23][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[22][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[21][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[20][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[19][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[18][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[17][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[16][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[15][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[14][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[13][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[12][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[11][0]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[10][1]                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[9][1]                           ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[8][1]                           ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[7][1]                           ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[6][1]                           ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[5][1]                           ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[4][1]                           ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[3][1]                           ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[2][1]                           ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[1][1]                           ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|pageInfo[0][1]                           ;
+; 266:1              ; 32 bits   ; 5664 LEs      ; 192 LEs              ; 5472 LEs               ; Yes        ; |BlueRacer|Mcu:inst11|Cpu:cpu|multiplierA[12]                          ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|MemoryController:memory|_write1State             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |BlueRacer|LiquidCrystalDisplay:inst5|commandState                     ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|_write4Stage                             ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|Selector145                              ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|LeftShifter:leftShifter|ShiftLeft0       ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|RightShifter:rightShifter|ShiftRight0    ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|_commandState                            ;
+; 4:1                ; 29 bits   ; 58 LEs        ; 58 LEs               ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|misoBuffer                               ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|LeftShifter:leftShifter|ShiftLeft0       ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|RightShifter:rightShifter|ShiftRight0    ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|LeftShifter:leftShifter|ShiftLeft0       ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|RightShifter:rightShifter|ShiftRight0    ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|MemoryController:memory|_write4State             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |BlueRacer|Mcu:inst11|MemoryController:memory|_write4State             ;
+; 6:1                ; 29 bits   ; 116 LEs       ; 29 LEs               ; 87 LEs                 ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|Selector929                              ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|Selector953                              ;
+; 17:1               ; 32 bits   ; 352 LEs       ; 32 LEs               ; 320 LEs                ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|Selector911                              ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|LeftShifter:leftShifter|ShiftLeft0       ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|RightShifter:rightShifter|ShiftRight0    ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|MemoryController:memory|_read4State              ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |BlueRacer|Mcu:inst11|MemoryController:memory|_read4State              ;
+; 64:1               ; 8 bits    ; 336 LEs       ; 88 LEs               ; 248 LEs                ; No         ; |BlueRacer|LcdLineWriter:inst9|Mux6                                    ;
+; 6:1                ; 18 bits   ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|Selector3058                             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|LeftShifter:leftShifter|ShiftLeft0       ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|RightShifter:rightShifter|ShiftRight0    ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |BlueRacer|LiquidCrystalDisplay:inst5|Selector35                       ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |BlueRacer|Mcu:inst11|MemoryController:memory|_write5State             ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |BlueRacer|Mcu:inst11|MemoryController:memory|_write5State             ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|Selector955                              ;
+; 8:1                ; 28 bits   ; 140 LEs       ; 140 LEs              ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|Selector296                              ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|Selector1330                             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|Selector3081                             ;
+; 7:1                ; 5 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|Selector3059                             ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |BlueRacer|LiquidCrystalDisplay:inst5|commandState                     ;
+; 9:1                ; 5 bits    ; 30 LEs        ; 25 LEs               ; 5 LEs                  ; No         ; |BlueRacer|Mcu:inst11|MemoryController:memory|_read5State              ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |BlueRacer|Mcu:inst11|MemoryController:memory|_read5State              ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|_gotoStage                               ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|_returnStage                             ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|_write4Stage                             ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|_popStage                                ;
+; 27:1               ; 2 bits    ; 36 LEs        ; 2 LEs                ; 34 LEs                 ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|leftShifterStage                         ;
+; 263:1              ; 32 bits   ; 5600 LEs      ; 32 LEs               ; 5568 LEs               ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|dividerStage                             ;
+; 263:1              ; 2 bits    ; 350 LEs       ; 2 LEs                ; 348 LEs                ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|multiplierStage                          ;
+; 263:1              ; 2 bits    ; 350 LEs       ; 2 LEs                ; 348 LEs                ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|subtracterStage                          ;
+; 28:1               ; 2 bits    ; 36 LEs        ; 2 LEs                ; 34 LEs                 ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|rightShifterStage                        ;
+; 28:1               ; 2 bits    ; 36 LEs        ; 2 LEs                ; 34 LEs                 ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|xorerStage                               ;
+; 28:1               ; 2 bits    ; 36 LEs        ; 2 LEs                ; 34 LEs                 ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|orerStage                                ;
+; 28:1               ; 2 bits    ; 36 LEs        ; 2 LEs                ; 34 LEs                 ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|anderStage                               ;
+; 14:1               ; 2 bits    ; 18 LEs        ; 4 LEs                ; 14 LEs                 ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|_read4Stage                              ;
+; 264:1              ; 2 bits    ; 352 LEs       ; 4 LEs                ; 348 LEs                ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|_callStage                               ;
+; 264:1              ; 2 bits    ; 352 LEs       ; 4 LEs                ; 348 LEs                ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|adderStage                               ;
+; 264:1              ; 2 bits    ; 352 LEs       ; 4 LEs                ; 348 LEs                ; No         ; |BlueRacer|Mcu:inst11|Cpu:cpu|_pushStage                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -3690,7 +3701,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:06:02     ;
+; Top            ; 00:06:01     ;
 +----------------+--------------+
 
 
@@ -3700,7 +3711,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Tue Aug 26 21:09:55 2014
+    Info: Processing started: Wed Aug 27 03:05:28 2014
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE0_NANO -c DE0_NANO
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file pll.vhd
@@ -3764,9 +3775,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file simple_
     Info (12023): Found entity 1: simple_dual_port_ram_single_clock
 Warning (10236): Verilog HDL Implicit Net warning at Mcu.v(57): created implicit net for "readInstructionEnable"
 Info (12127): Elaborating entity "BlueRacer" for the top level hierarchy
-Warning (275011): Block or symbol "BitsToByte" of instance "inst2" overlaps another block or symbol
 Warning (275089): Not all bits in bus "GPIO[33..2]" are used
-Warning (275009): Pin "GPIO_1" not connected
+Warning (275089): Not all bits in bus "GPIO_1[33..0]" are used
 Info (12128): Elaborating entity "Mcu" for hierarchy "Mcu:inst11"
 Info (12128): Elaborating entity "MemoryController" for hierarchy "Mcu:inst11|MemoryController:memory"
 Warning (10240): Verilog HDL Always Construct warning at MemoryController.v(457): inferring latch(es) for variable "read1Buffer", which holds its previous value in one or more paths through the always construct
@@ -4148,25 +4158,18 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning (15897): PLL "pll:inst|altpll:altpll_component|pll_altpll:auto_generated|pll1" has parameter compensate_clock set to clock0 but port CLK[0] is not connected
 Warning (15899): PLL "pll:inst|altpll:altpll_component|pll_altpll:auto_generated|pll1" has parameters clk0_multiply_by and clk0_divide_by specified but port CLK[0] is not connected
-Warning (21074): Design contains 6 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "GPIO_1[5]"
-    Warning (15610): No output dependent on input pin "GPIO_1[4]"
-    Warning (15610): No output dependent on input pin "GPIO_1[3]"
-    Warning (15610): No output dependent on input pin "GPIO_1[2]"
-    Warning (15610): No output dependent on input pin "GPIO_1[1]"
-    Warning (15610): No output dependent on input pin "GPIO_1[0]"
-Info (21057): Implemented 17840 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 17045 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 12 input pins
     Info (21059): Implemented 15 output pins
-    Info (21061): Implemented 17730 logic cells
+    Info (21061): Implemented 16935 logic cells
     Info (21064): Implemented 76 RAM segments
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 6 DSP elements
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 74 warnings
-    Info: Peak virtual memory: 817 megabytes
-    Info: Processing ended: Tue Aug 26 21:16:07 2014
-    Info: Elapsed time: 00:06:12
-    Info: Total CPU time (on all processors): 00:06:11
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 66 warnings
+    Info: Peak virtual memory: 838 megabytes
+    Info: Processing ended: Wed Aug 27 03:11:47 2014
+    Info: Elapsed time: 00:06:19
+    Info: Total CPU time (on all processors): 00:06:17
 
 
 +------------------------------------------+
