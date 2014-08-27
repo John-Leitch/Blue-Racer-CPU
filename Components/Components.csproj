@@ -43,6 +43,8 @@
     <Compile Include="BigEndianBitConverter.cs" />
     <Compile Include="ByteArrayExtension.cs" />
     <Compile Include="ByteHelper.cs" />
+    <Compile Include="CliArgAttribute.cs" />
+    <Compile Include="CliArgReader.cs" />
     <Compile Include="ConsolePlus\Cli.cs" />
     <Compile Include="ConsolePlus\CliLexerState.cs" />
     <Compile Include="ConsolePlus\CliProgressBar.cs" />
