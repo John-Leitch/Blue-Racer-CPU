@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace Components.BlueRacer
 
         public ModelSimAutomator()
         {
-            Exe = @"C:\altera\13.1\modelsim_ase\win32aloem\vsim.exe";
+            Exe = ModelSimAutomatorSettings.GetExePath();
         }
 
         public string Execute(ModelSimSettings settings)
@@ -35,12 +36,11 @@ namespace Components.BlueRacer
                     .Replace('\\', '/');
 
                 settings.Output = outputFile;
-
                 var script = settings.CreateScript();
                 File.WriteAllText(doFile, script);
-
                 var p = Process.Start(Exe, string.Format("-do \"{0}\"", doFile));
                 p.WaitForExit();
+
                 return File.ReadAllText(outputFile.Replace('/', '\\'));
             }
             finally
@@ -59,9 +59,6 @@ namespace Components.BlueRacer
 
                 Directory.SetCurrentDirectory(originalDir);
             }
-            //var list = ModelSimList.Parse(File.ReadAllText(outputFile.Replace('/', '\\')));
-            
-            //return list;
         }
     }
 }
