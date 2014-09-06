@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -60,6 +61,7 @@
     <Compile Include="InstructionStreamVerifier.cs" />
     <Compile Include="McuTestTemplate.cs" />
     <Compile Include="ModelSimAutomator.cs" />
+    <Compile Include="ModelSimAutomatorSettings.cs" />
     <Compile Include="ModelSimList.cs" />
     <Compile Include="ModelSimListItem.cs" />
     <Compile Include="ModelSimSettings.cs" />
@@ -97,6 +99,11 @@
       <Project>{8aeb4bf0-34cd-4145-b3a4-a0c0fc09f11d}</Project>
       <Name>Components</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="McuTestTemplate.v">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

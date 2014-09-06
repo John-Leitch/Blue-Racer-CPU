@@ -38,10 +38,9 @@ namespace Components.BlueRacer
                     x.Value))
                 .JoinLines();
 
-
-            var template = File.ReadAllText(@"C:\altera\13.1\McuTestTemplate.v");
-
+            var template = File.ReadAllText(PathHelper.GetExecutingPath(@"McuTestTemplate.v"));
             var t = new StringTemplate(template).PopulateObj(this);
+
             return t;
         }
     }

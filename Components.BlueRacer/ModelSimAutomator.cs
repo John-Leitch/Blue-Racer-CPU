@@ -26,22 +26,15 @@ namespace Components.BlueRacer
             try
             {
                 Directory.SetCurrentDirectory(Path.GetDirectoryName(Exe));
-
-                doFile = Path
-                    .GetFullPath(Path.GetRandomFileName() + ".do")
-                    .Replace('\\', '/');
-
-                outputFile = Path
-                    .GetFullPath(Path.GetRandomFileName() + ".txt")
-                    .Replace('\\', '/');
-
+                doFile = PathHelper.UseForwardSlashes(Path.GetFullPath(Path.GetRandomFileName() + ".do"));
+                outputFile = PathHelper.UseForwardSlashes(Path.GetFullPath(Path.GetRandomFileName() + ".txt"));
                 settings.Output = outputFile;
                 var script = settings.CreateScript();
                 File.WriteAllText(doFile, script);
                 var p = Process.Start(Exe, string.Format("-do \"{0}\"", doFile));
                 p.WaitForExit();
 
-                return File.ReadAllText(outputFile.Replace('/', '\\'));
+                return File.ReadAllText(PathHelper.UseForwardSlashes(outputFile));
             }
             finally
             {

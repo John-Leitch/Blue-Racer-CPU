@@ -25,9 +25,15 @@ namespace Components.BlueRacer
             var sb = new StringBuilder();
 
             sb.AppendFormat("cd {0}\r\n", WorkingPath);
-            sb.Append("project open Md5\r\n");
+            sb.Append("vlib work\r\n");
             sb.Append(VerilogFiles.Select(x => string.Format("vlog {0}\r\n", x)).Join());
+            
+            sb.AppendFormat(
+                "vlog {0}\r\n",
+                PathHelper.UseForwardSlashes(ModelSimAutomatorSettings.GetLpmFile()));
+
             sb.AppendFormat("vsim {0}\r\n", TestModule);
+            sb.AppendFormat("radix -hexadecimal\r\n");
             sb.Append(Signals.Select(x => string.Format("add list {0}\r\n", x)).Join());
             sb.AppendFormat("run {0}\r\n", RunTime);
             sb.AppendFormat("write list {0}\r\n", Output);

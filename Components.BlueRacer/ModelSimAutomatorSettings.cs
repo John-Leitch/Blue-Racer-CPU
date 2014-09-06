@@ -10,20 +10,30 @@ namespace Components.BlueRacer
 {
     public static class ModelSimAutomatorSettings
     {
-        public const string ExeKey = "ModelSim", WorkingPathKey = "WorkingPath";
+        public const string ExeKey = "ModelSim", 
+            WorkingPathKey = "WorkingPath", 
+            LpmFileKey = "LpmFile";
+
+        private static string GetPath(string key)
+        {
+            return ConfigurationManager.AppSettings.AllKeys.Contains(key) ?
+                Path.GetFullPath(ConfigurationManager.AppSettings[key]) :
+                null;
+        }
 
         public static string GetExePath()
         {
-            return ConfigurationManager.AppSettings.AllKeys.Contains(ExeKey) ? 
-                Path.GetFullPath(ConfigurationManager.AppSettings[ExeKey]) : 
-                null;
+            return GetPath(ExeKey);
         }
 
         public static string GetWorkingPath()
         {
-            return ConfigurationManager.AppSettings.AllKeys.Contains(WorkingPathKey) ?
-                Path.GetFullPath(ConfigurationManager.AppSettings[WorkingPathKey]) : 
-                null;
+            return GetPath(WorkingPathKey);
+        }
+
+        public static string GetLpmFile()
+        {
+            return GetPath(LpmFileKey);
         }
     }
 }

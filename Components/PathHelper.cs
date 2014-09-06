@@ -58,5 +58,15 @@ namespace Components
         {
             return Path.Combine(Path.GetDirectoryName(path), filename);
         }
+
+        public static string UseForwardSlashes(string path)
+        {
+            return path.Replace('\\', '/');
+        }
+
+        public static string GetRandomFilename(string ext)
+        {
+            return Path.GetRandomFileName() + "." + ext;
+        }
     }
 }

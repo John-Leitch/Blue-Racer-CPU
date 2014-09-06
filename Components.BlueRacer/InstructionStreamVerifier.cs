@@ -57,7 +57,11 @@ namespace Components.BlueRacer
             return testCases;
         }
 
-        protected override VerificationResult CreateResult(string asm, string list, Dictionary<int, string> testValues, CpuErrorCode error)
+        protected override VerificationResult CreateResult(
+            string asm, 
+            string list, 
+            Dictionary<int, string> testValues, 
+            CpuErrorCode error)
         {
             var ast = AphidParser.Parse(asm);
 
