@@ -19,7 +19,9 @@ namespace Components.Aphid.Lexer
         AndOperator,
         AnyOperator,
         AssignmentOperator,
+        BinaryAndEqualOperator,
         BinaryAndOperator,
+        BinaryNumber,
         BinaryOrOperator,
         breakKeyword,
         catchKeyword,
@@ -82,7 +84,9 @@ namespace Components.Aphid.Lexer
         SelectManyOperator,
         SelectOperator,
         ShiftLeft,
+        ShiftLeftEqualOperator,
         ShiftRight,
+        ShiftRightEqualOperator,
         String,
         switchKeyword,
         thisKeyword,
@@ -118,29 +122,29 @@ namespace Components.Aphid.Lexer
         public bool IsKeyword()
         {
             return TokenType == AphidTokenType.trueKeyword ||
-                TokenType == AphidTokenType.falseKeyword ||
-                TokenType == AphidTokenType.nullKeyword ||
-                TokenType == AphidTokenType.ifKeyword ||
-                TokenType == AphidTokenType.elseKeyword ||
-                TokenType == AphidTokenType.switchKeyword ||
-                TokenType == AphidTokenType.defaultKeyword ||
-                TokenType == AphidTokenType.whileKeyword ||
-                TokenType == AphidTokenType.forKeyword ||
-                TokenType == AphidTokenType.inKeyword ||
-                TokenType == AphidTokenType.breakKeyword ||
-                TokenType == AphidTokenType.retKeyword ||
-                TokenType == AphidTokenType.thisKeyword ||
-                TokenType == AphidTokenType.definedKeyword ||
-                TokenType == AphidTokenType.deleteKeyword ||
-                TokenType == AphidTokenType.extendKeyword ||
-                TokenType == AphidTokenType.tryKeyword ||
-                TokenType == AphidTokenType.catchKeyword ||
-                TokenType == AphidTokenType.finallyKeyword;
+TokenType == AphidTokenType.falseKeyword ||
+TokenType == AphidTokenType.nullKeyword ||
+TokenType == AphidTokenType.ifKeyword ||
+TokenType == AphidTokenType.elseKeyword ||
+TokenType == AphidTokenType.switchKeyword ||
+TokenType == AphidTokenType.defaultKeyword ||
+TokenType == AphidTokenType.whileKeyword ||
+TokenType == AphidTokenType.forKeyword ||
+TokenType == AphidTokenType.inKeyword ||
+TokenType == AphidTokenType.breakKeyword ||
+TokenType == AphidTokenType.retKeyword ||
+TokenType == AphidTokenType.thisKeyword ||
+TokenType == AphidTokenType.definedKeyword ||
+TokenType == AphidTokenType.deleteKeyword ||
+TokenType == AphidTokenType.extendKeyword ||
+TokenType == AphidTokenType.tryKeyword ||
+TokenType == AphidTokenType.catchKeyword ||
+TokenType == AphidTokenType.finallyKeyword;
         }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("llex", "1")]
-    public class AphidLexer
+    public partial class AphidLexer
     {
         private string text = "";
 
@@ -269,6 +273,27 @@ namespace Components.Aphid.Lexer
 
                             return AphidTokenType.RightBrace;
 
+                        case '=':
+                            if (charIndex < lastIndex)
+                            {
+                                currentChar = text[++charIndex];
+
+                                switch (currentChar)
+                                {
+                                    case '=':
+
+                                        return AphidTokenType.EqualityOperator;
+
+                                    case '?':
+
+                                        return AphidTokenType.AnyOperator;
+
+                                }
+
+                                charIndex--;
+                            }
+                            return AphidTokenType.AssignmentOperator;
+
                         case '-':
                             if (charIndex < lastIndex)
                             {
@@ -301,27 +326,6 @@ namespace Components.Aphid.Lexer
                                 charIndex--;
                             }
                             return AphidTokenType.MinusOperator;
-
-                        case '=':
-                            if (charIndex < lastIndex)
-                            {
-                                currentChar = text[++charIndex];
-
-                                switch (currentChar)
-                                {
-                                    case '=':
-
-                                        return AphidTokenType.EqualityOperator;
-
-                                    case '?':
-
-                                        return AphidTokenType.AnyOperator;
-
-                                }
-
-                                charIndex--;
-                            }
-                            return AphidTokenType.AssignmentOperator;
 
                         case '+':
                             if (charIndex < lastIndex)
@@ -450,6 +454,27 @@ namespace Components.Aphid.Lexer
                             }
                             return AphidTokenType.ModulusOperator;
 
+                        case '&':
+                            if (charIndex < lastIndex)
+                            {
+                                currentChar = text[++charIndex];
+
+                                switch (currentChar)
+                                {
+                                    case '=':
+
+                                        return AphidTokenType.BinaryAndEqualOperator;
+
+                                    case '&':
+
+                                        return AphidTokenType.AndOperator;
+
+                                }
+
+                                charIndex--;
+                            }
+                            return AphidTokenType.BinaryAndOperator;
+
                         case '|':
                             if (charIndex < lastIndex)
                             {
@@ -492,27 +517,6 @@ namespace Components.Aphid.Lexer
                             }
                             return AphidTokenType.XorOperator;
 
-                        case '&':
-                            if (charIndex < lastIndex)
-                            {
-                                currentChar = text[++charIndex];
-
-                                switch (currentChar)
-                                {
-                                    case '&':
-
-                                        return AphidTokenType.AndOperator;
-
-                                }
-
-                                charIndex--;
-                            }
-                            return AphidTokenType.BinaryAndOperator;
-
-                        case '~':
-
-                            return AphidTokenType.ComplementOperator;
-
                         case '<':
                             if (charIndex < lastIndex)
                             {
@@ -521,7 +525,20 @@ namespace Components.Aphid.Lexer
                                 switch (currentChar)
                                 {
                                     case '<':
+                                        if (charIndex < lastIndex)
+                                        {
+                                            currentChar = text[++charIndex];
 
+                                            switch (currentChar)
+                                            {
+                                                case '=':
+
+                                                    return AphidTokenType.ShiftLeftEqualOperator;
+
+                                            }
+
+                                            charIndex--;
+                                        }
                                         return AphidTokenType.ShiftLeft;
 
                                     case '>':
@@ -546,7 +563,20 @@ namespace Components.Aphid.Lexer
                                 switch (currentChar)
                                 {
                                     case '>':
+                                        if (charIndex < lastIndex)
+                                        {
+                                            currentChar = text[++charIndex];
 
+                                            switch (currentChar)
+                                            {
+                                                case '=':
+
+                                                    return AphidTokenType.ShiftRightEqualOperator;
+
+                                            }
+
+                                            charIndex--;
+                                        }
                                         return AphidTokenType.ShiftRight;
 
                                     case '=':
@@ -558,6 +588,10 @@ namespace Components.Aphid.Lexer
                                 charIndex--;
                             }
                             return AphidTokenType.GreaterThanOperator;
+
+                        case '~':
+
+                            return AphidTokenType.ComplementOperator;
 
                         case '!':
                             if (charIndex < lastIndex)
@@ -648,6 +682,39 @@ namespace Components.Aphid.Lexer
                                         while (NextChar());
 
                                         return AphidTokenType.HexNumber;
+
+                                        break;
+
+                                    case 'b':
+
+
+                                        if (!NextChar())
+                                        {
+                                            return AphidTokenType.Unknown;
+                                        }
+
+                                        state = 0;
+
+                                        do
+                                        {
+                                            if ((state == 0 || state == 1) && (currentChar == '0' || currentChar == '1'))
+                                                state = 1;
+                                            else if (state == 1)
+                                            {
+                                                charIndex--;
+
+                                                return AphidTokenType.BinaryNumber;
+                                            }
+                                            else
+                                            {
+                                                charIndex--;
+
+                                                return AphidTokenType.Unknown;
+                                            }
+                                        }
+                                        while (NextChar());
+
+                                        return AphidTokenType.BinaryNumber;
 
                                         break;
 

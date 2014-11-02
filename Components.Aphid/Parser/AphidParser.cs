@@ -355,9 +355,12 @@ namespace Components.Aphid.Parser
                     NextToken();
                     break;
 
+                case AphidTokenType.BinaryNumber:
+                    exp = new NumberExpression(BinaryNumber.Parse(_currentToken.Lexeme.Substring(2)));
+                    NextToken();
+                    break;
+
                 case AphidTokenType.MultiplicationOperator:
-
-
                 case AphidTokenType.PatternMatchingOperator:
                     var matchExp = new PatternMatchingExpression();
                     NextToken();

@@ -105,7 +105,7 @@ namespace Components.Aphid.Interpreter
             }
             else
             {
-                return new AphidObject((decimal)((int)(decimal)x.Value << (int)(decimal)y.Value));
+                return new AphidObject((decimal)((int)(decimal)x.Value >> (int)(decimal)y.Value));
             }
         }
 

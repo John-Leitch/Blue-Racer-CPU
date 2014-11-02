@@ -353,23 +353,35 @@ namespace Components.Aphid.Interpreter
                 case AphidTokenType.AssignmentOperator:
                     return InterpetAssignmentExpression(expression, returnRef);
 
-                case AphidTokenType.DivisionEqualOperator:
-                    return InterprentOperatorAndAssignmentExpression(OperatorHelper.Divide, expression);
+                case AphidTokenType.PlusEqualOperator:
+                    return InterprentOperatorAndAssignmentExpression(OperatorHelper.Add, expression);
 
                 case AphidTokenType.MinusEqualOperator:
                     return InterprentOperatorAndAssignmentExpression(OperatorHelper.Subtract, expression);
 
+                case AphidTokenType.MultiplicationEqualOperator:
+                    return InterprentOperatorAndAssignmentExpression(OperatorHelper.Multiply, expression);                
+
+                case AphidTokenType.DivisionEqualOperator:
+                    return InterprentOperatorAndAssignmentExpression(OperatorHelper.Divide, expression);
+
                 case AphidTokenType.ModulusEqualOperator:
                     return InterprentOperatorAndAssignmentExpression(OperatorHelper.Mod, expression);
 
-                case AphidTokenType.MultiplicationEqualOperator:
-                    return InterprentOperatorAndAssignmentExpression(OperatorHelper.Multiply, expression);
+                case AphidTokenType.BinaryAndEqualOperator:
+                    return InterprentOperatorAndAssignmentExpression(OperatorHelper.BinaryAnd, expression);
 
-                case AphidTokenType.PlusEqualOperator:
-                    return InterprentOperatorAndAssignmentExpression(OperatorHelper.Add, expression);
+                case AphidTokenType.OrEqualOperator:
+                    return InterprentOperatorAndAssignmentExpression(OperatorHelper.BinaryOr, expression);
 
                 case AphidTokenType.XorEqualOperator:
                     return InterprentOperatorAndAssignmentExpression(OperatorHelper.Xor, expression);
+
+                case AphidTokenType.ShiftLeftEqualOperator:
+                    return InterprentOperatorAndAssignmentExpression(OperatorHelper.BinaryShiftLeft, expression);
+
+                case AphidTokenType.ShiftRightEqualOperator:
+                    return InterprentOperatorAndAssignmentExpression(OperatorHelper.BinaryShiftRight, expression);
 
                 case AphidTokenType.NotEqualOperator:
                 case AphidTokenType.EqualityOperator:
