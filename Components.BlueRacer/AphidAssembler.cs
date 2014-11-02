@@ -301,9 +301,9 @@ namespace Components.BlueRacer
                 case AphidTokenType.MinusEqualOperator:
                 case AphidTokenType.MultiplicationEqualOperator:
                 case AphidTokenType.DivisionEqualOperator:
-                case AphidTokenType.BinaryAndOperator:
-                case AphidTokenType.ShiftLeft:
-                case AphidTokenType.ShiftRight:
+                case AphidTokenType.BinaryAndEqualOperator:
+                case AphidTokenType.ShiftLeftEqualOperator:
+                case AphidTokenType.ShiftRightEqualOperator:
                 case AphidTokenType.OrEqualOperator:
                 case AphidTokenType.XorEqualOperator:
                     if (expression.LeftOperand is IdentifierExpression)
@@ -681,7 +681,9 @@ namespace Components.BlueRacer
                 ast = cfMutator.Mutate(ast);
             } while (cfMutator.HasMutated);
 
-            ast = new AphidCallMutator().Mutate(ast);            
+            ast = new AphidCallMutator().Mutate(ast);
+            ast = new ThreeOperandMutator().Mutate(ast);
+
             var instructions = new List<byte[]>();
 
             foreach (var exp in ast)
