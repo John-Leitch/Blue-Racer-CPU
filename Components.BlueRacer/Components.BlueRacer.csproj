@@ -54,6 +54,7 @@
     <Compile Include="CpuConsole.cs" />
     <Compile Include="CpuContext.cs" />
     <Compile Include="CpuDebugger.cs" />
+    <Compile Include="CpuEthernetConnection.cs" />
     <Compile Include="CpuProgrammer.cs" />
     <Compile Include="CpuSoftwareVerifier.cs" />
     <Compile Include="CpuVerificationRunner.cs" />
@@ -92,7 +93,7 @@
     <Compile Include="VerilogGlobals.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Aphid\Components.Aphid\Components.Aphid.csproj">
+    <ProjectReference Include="..\Components.Aphid\Components.Aphid.csproj">
       <Project>{4249db75-bbb6-4cc4-b046-3170dd1d3bc1}</Project>
       <Name>Components.Aphid</Name>
     </ProjectReference>

@@ -9,9 +9,9 @@ namespace Components.BlueRacer
 {
     public sealed class CpuDebugger
     {
-        private CpuConnection _connection;
+        private CpuEthernetConnection _connection;
 
-        public CpuDebugger(CpuConnection connection)
+        public CpuDebugger(CpuEthernetConnection connection)
         {
             _connection = connection;
         }

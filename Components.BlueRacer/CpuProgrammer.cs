@@ -9,9 +9,9 @@ namespace Components.BlueRacer
 {
     public class CpuProgrammer
     {
-        private CpuConnection _connection;
+        private CpuEthernetConnection _connection;
 
-        public CpuProgrammer(CpuConnection connection)
+        public CpuProgrammer(CpuEthernetConnection connection)
         {
             _connection = connection;
         }

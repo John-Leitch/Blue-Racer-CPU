@@ -8,41 +8,19 @@ using System.Threading.Tasks;
 
 namespace Components.BlueRacer
 {
-    public sealed class CpuConnection : IDisposable
+    public abstract class CpuConnection : IDisposable
     {
-        private NetworkStream _stream;
+        public bool IsConnected { get; protected set; }
 
-        public bool IsConnected { get; private set; }
+        public abstract void Open(string connectionString);
 
-        public void Open(string host)
-        {
-            ExceptionHelper.InvalidOperationIf(IsConnected);
-            IsConnected = true;
-            _stream = TcpHelper.GetStream(host, 5230);
-        }
+        public abstract void Disconnect();
 
-        public void Disconnect()
-        {
-            ExceptionHelper.InvalidOperationIf(!IsConnected);
-            IsConnected = false;
-            _stream.Dispose();
-            _stream = null;
-        }
+        public abstract void Dispose();
 
-        public void Dispose()
-        {
-            ExceptionHelper.InvalidOperationIf(IsConnected);
-        }
+        public abstract void Write(byte[] buffer);
 
-        public void Write(byte[] buffer)
-        {
-            _stream.Write(buffer);
-        }
-
-        public byte[] Read(int bufferLength)
-        {
-            return _stream.ReadAll(bufferLength);
-        }
+        public abstract byte[] Read(int bufferLength);
 
         public ProgrammerCommand ReadCommand()
         {
@@ -71,14 +49,6 @@ namespace Components.BlueRacer
         public void WriteCommand(ProgrammerCommand command, uint operand)
         {
             Write(new byte[] { (byte)command }.Concat(BitConverter.GetBytes(operand)).ToArray());
-        }
-
-        public static CpuConnection Create(string host)
-        {
-            var connection = new CpuConnection();
-            connection.Open(host);
-
-            return connection;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Components.BlueRacer
 {
     public class CpuConsole
     {
-        private CpuConnection _connection;
+        private CpuEthernetConnection _connection;
 
         private CpuDebugger _debugger;
 
@@ -22,7 +22,7 @@ namespace Components.BlueRacer
         public void Connect(string host)
         {
             Cli.Write("Connecting... ");
-            _connection = CpuConnection.Create(host);
+            _connection = CpuEthernetConnection.Create(host);
             _debugger = new CpuDebugger(_connection);
             _programmer = new CpuProgrammer(_connection);
             //var flags = _programmer.GetPageFlags(0x0);

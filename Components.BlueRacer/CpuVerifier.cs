@@ -56,11 +56,11 @@ namespace Components.BlueRacer
                         .Range(0, testTemplate.TestCount)
                         .Select(x => "/McuTest2/test" + x)
                         .Concat(new[] 
-                    { 
-                        "/McuTest2/testComplete",
-                        "/McuTest2/error", 
-                        "/McuTest2/errorCode",
-                    })
+                        { 
+                            "/McuTest2/testComplete",
+                            "/McuTest2/error", 
+                            "/McuTest2/errorCode",
+                        })
                         .ToArray(),
                     RunTime = 200000,
                     Output = PathHelper.UseForwardSlashes(resultFile),
