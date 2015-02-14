@@ -20,17 +20,17 @@ r1 *= 0xdeadbeef;
 r1 /= r2;
 r1 /= 0xdeadbeef;
 
-r1 & r2;
-r1 & 0xdeadbeef;
+r1 &= r2;
+r1 &= 0xdeadbeef;
 
 r1 |= r2;
 r1 |= 0xdeadbeef;
 
-r1 >> r2;
-r1 >> 0xdeadbeef;
+r1 >>= r2;
+r1 >>= 0xdeadbeef;
 
-r1 << r2;
-r1 << 0xdeadbeef;
+r1 <<= r2;
+r1 <<= 0xdeadbeef;
 
 r1 ^= r2;
 r1 ^= 0xdeadbeef;
