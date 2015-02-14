@@ -15,8 +15,11 @@ namespace Components.Aphid.Parser
 
         private AphidToken _currentToken;
 
+        public bool UseImplicitReturns { get; set; }
+
         public AphidParser(List<AphidToken> tokens)
         {
+            UseImplicitReturns = true;
             _tokens = tokens;
         }
 
@@ -33,7 +36,7 @@ namespace Components.Aphid.Parser
                 throw new AphidParserException(_currentToken, tokenType);
             }
         }
-        
+
         [System.Diagnostics.DebuggerStepThrough]
         public bool NextToken()
         {
@@ -51,14 +54,14 @@ namespace Components.Aphid.Parser
             }
         }
 
-        public Expression ParseExpression()
+        public AphidExpression ParseExpression()
         {
             return ParseAssignmentExpression();
         }
 
-        public Expression ParseQueryExpression()
+        public AphidExpression ParseQueryExpression()
         {
-            Expression exp = ParseRangeExpression();
+            AphidExpression exp = ParseRangeExpression();
             var inQuery = true;
 
             do
@@ -66,7 +69,7 @@ namespace Components.Aphid.Parser
                 switch (_currentToken.TokenType)
                 {
                     case AphidTokenType.AggregateOperator:
-                    case AphidTokenType.AnyOperator:                    
+                    case AphidTokenType.AnyOperator:
                     case AphidTokenType.SelectManyOperator:
                     case AphidTokenType.SelectOperator:
                     case AphidTokenType.WhereOperator:
@@ -78,19 +81,19 @@ namespace Components.Aphid.Parser
                     case AphidTokenType.DistinctOperator:
                         exp = new UnaryOperatorExpression(_currentToken.TokenType, exp);
                         NextToken();
-                        break;   
-                 
+                        break;
+
                     default:
                         inQuery = false;
                         break;
                 }
-            } 
+            }
             while (inQuery);
 
             return exp;
         }
 
-        private Expression ParseConditionalExpression()
+        private AphidExpression ParseConditionalExpression()
         {
             var exp = ParseLogicalExpression();
 
@@ -113,7 +116,7 @@ namespace Components.Aphid.Parser
             }
         }
 
-        private Expression ParsePostfixUnaryOperationExpression()
+        private AphidExpression ParsePostfixUnaryOperationExpression()
         {
             var term = ParseBinaryOrExpression();
 
@@ -130,14 +133,17 @@ namespace Components.Aphid.Parser
             }
         }
 
-        public Expression ParsePrefixUnaryOperatorExpression()
+        public AphidExpression ParsePrefixUnaryOperatorExpression()
         {
             switch (_currentToken.TokenType)
             {
+                case AphidTokenType.AdditionOperator:
+                case AphidTokenType.MinusOperator:
                 case AphidTokenType.NotOperator:
                 case AphidTokenType.IncrementOperator:
                 case AphidTokenType.DecrementOperator:
                 case AphidTokenType.MultiplicationOperator:
+                case AphidTokenType.ComplementOperator:
                     var t = _currentToken.TokenType;
                     NextToken();
                     return new UnaryOperatorExpression(t, ParseArrayAccessExpression());
@@ -147,7 +153,7 @@ namespace Components.Aphid.Parser
             }
         }
 
-        public Expression ParseArrayAccessExpression()
+        public AphidExpression ParseArrayAccessExpression()
         {
             var exp = ParseCallExpression();
 
@@ -162,7 +168,7 @@ namespace Components.Aphid.Parser
             return exp;
         }
 
-        public Expression ParseCallExpression()
+        public AphidExpression ParseCallExpression()
         {
             var function = ParseMemberExpression();
 
@@ -185,7 +191,7 @@ namespace Components.Aphid.Parser
             return function;
         }
 
-        public Expression ParseCallExpression(Expression expression)
+        public AphidExpression ParseCallExpression(AphidExpression expression)
         {
             while (_currentToken.TokenType == AphidTokenType.LeftParenthesis)
             {
@@ -206,15 +212,15 @@ namespace Components.Aphid.Parser
             return expression;
         }
 
-        public Expression ParseMemberExpression()
+        public AphidExpression ParseMemberExpression()
         {
-            Expression factor = ParseCallExpression(ParseFactor());
+            AphidExpression factor = ParseCallExpression(ParseFactor());
 
             while (_currentToken.TokenType == AphidTokenType.MemberOperator)
             {
                 NextToken();
 
-                Expression exp;
+                AphidExpression exp;
 
                 switch (_currentToken.TokenType)
                 {
@@ -251,9 +257,9 @@ namespace Components.Aphid.Parser
             return factor;
         }
 
-        public Expression ParseFactor()
+        public AphidExpression ParseFactor()
         {
-            Expression exp;
+            AphidExpression exp;
             switch (_currentToken.TokenType)
             {
                 case AphidTokenType.LeftBrace:
@@ -276,13 +282,6 @@ namespace Components.Aphid.Parser
 
                 case AphidTokenType.Number:
                     exp = ParseNumberExpression();
-                    break;
-
-                case AphidTokenType.MinusOperator:
-                    NextToken();
-                    var numExp = ParseNumberExpression();
-                    numExp.Value *= -1;
-                    exp = numExp;
                     break;
 
                 case AphidTokenType.Identifier:
@@ -370,7 +369,7 @@ namespace Components.Aphid.Parser
 
                     while (true)
                     {
-                        var tests = new List<Expression>();
+                        var tests = new List<AphidExpression>();
 
                         while (true)
                         {
@@ -394,12 +393,12 @@ namespace Components.Aphid.Parser
 
                             foreach (var t in tests)
                             {
-                                matchExp.Patterns.Add(new Tuple<Expression, Expression>(t, b));
+                                matchExp.Patterns.Add(new Tuple<AphidExpression, AphidExpression>(t, b));
                             }
                         }
                         else
                         {
-                            matchExp.Patterns.Add(new Tuple<Expression, Expression>(null, tests[0]));
+                            matchExp.Patterns.Add(new Tuple<AphidExpression, AphidExpression>(null, tests[0]));
                         }
 
                         if (_currentToken.TokenType == AphidTokenType.Comma)
@@ -422,10 +421,9 @@ namespace Components.Aphid.Parser
             return exp;
         }
 
-        private Expression ParseFunctionExpression()
+        private AphidExpression ParseFunctionExpression()
         {
-            Expression exp;
-
+            AphidExpression exp;
             NextToken();
 
             switch (_currentToken.TokenType)
@@ -433,7 +431,7 @@ namespace Components.Aphid.Parser
                 case AphidTokenType.LeftParenthesis:
                     var funcExp = new FunctionExpression()
                     {
-                        Args = new List<IdentifierExpression>()
+                        Args = new List<AphidExpression>()
                     };
 
                     NextToken();
@@ -444,7 +442,17 @@ namespace Components.Aphid.Parser
                         {
                             if (_currentToken.TokenType == AphidTokenType.Identifier)
                             {
-                                funcExp.Args.Add(ParseIdentifierExpression() as IdentifierExpression);
+                                var id = (IdentifierExpression)ParseIdentifierExpression();
+                                AphidExpression argExp = id;
+
+                                if (_currentToken.TokenType == AphidTokenType.AssignmentOperator)
+                                {
+                                    var op = _currentToken.TokenType;
+                                    NextToken();
+                                    argExp = new BinaryOperatorExpression(id, op, ParseExpression());
+                                }
+
+                                funcExp.Args.Add(argExp);
 
                                 if (_currentToken.TokenType == AphidTokenType.Comma)
                                 {
@@ -468,9 +476,12 @@ namespace Components.Aphid.Parser
 
                     var body = ParseBlock(false);
 
-                    if (isSingleLine)
+                    if (isSingleLine && UseImplicitReturns)
                     {
-                        funcExp.Body = new List<Expression> { new UnaryOperatorExpression(AphidTokenType.retKeyword, body[0]) };
+                        funcExp.Body = new List<AphidExpression> 
+                        { 
+                            new UnaryOperatorExpression(AphidTokenType.retKeyword, body[0]) 
+                        };
                     }
                     else
                     {
@@ -494,7 +505,7 @@ namespace Components.Aphid.Parser
         {
             var id = new IdentifierExpression(_currentToken.Lexeme);
             NextToken();
-            Expression exp;
+            AphidExpression exp;
 
             if (_currentToken.TokenType == AphidTokenType.ColonOperator)
             {
@@ -574,7 +585,7 @@ namespace Components.Aphid.Parser
 
             var inNode = true;
 
-            var childNodes = new List<Expression>();
+            var childNodes = new List<AphidExpression>();
 
             if (_currentToken.TokenType != AphidTokenType.RightBracket)
             {
@@ -618,6 +629,23 @@ namespace Components.Aphid.Parser
             var exp = new IdentifierExpression(_currentToken.Lexeme);
             NextToken();
 
+            if (_currentToken.TokenType == AphidTokenType.Identifier)
+            {
+                var id = exp;
+                var attributes = new List<IdentifierExpression>();
+
+                do
+                {
+                    attributes.Add(id);
+                    id = new IdentifierExpression(_currentToken.Lexeme);
+                    NextToken();
+                }
+                while (_currentToken.TokenType == AphidTokenType.Identifier);
+
+                id.Attributes = attributes;
+                exp = id;
+            }
+
             return exp;
         }
 
@@ -628,7 +656,7 @@ namespace Components.Aphid.Parser
             return new UnaryOperatorExpression(t, ParseExpression());
         }
 
-        private Expression ParseCondition()
+        private AphidExpression ParseCondition()
         {
             Match(AphidTokenType.LeftParenthesis);
             var condition = ParseExpression();
@@ -641,7 +669,7 @@ namespace Components.Aphid.Parser
             NextToken();
             var condition = ParseCondition();
             var body = ParseBlock();
-            List<Expression> elseBody = null;
+            List<AphidExpression> elseBody = null;
             if (_currentToken.TokenType == AphidTokenType.elseKeyword)
             {
                 NextToken();
@@ -667,7 +695,7 @@ namespace Components.Aphid.Parser
             //return new IfExpression(condition, body, elseBody);
         }
 
-        public Expression ParseForExpression()
+        public AphidExpression ParseForExpression()
         {
             NextToken();
             Match(AphidTokenType.LeftParenthesis);
@@ -693,19 +721,16 @@ namespace Components.Aphid.Parser
             }
         }
 
-        public ControlFlowExpression ParseWhileExpression()
+        public WhileExpression ParseWhileExpression()
         {
             NextToken();
 
-            return new ControlFlowExpression(
-                AphidTokenType.whileKeyword,
-                ParseCondition(),
-                ParseBlock());
+            return new WhileExpression(ParseCondition(), ParseBlock());
         }
 
-        private List<Expression> ParseTuple()
+        private List<AphidExpression> ParseTuple()
         {
-            var tuple = new List<Expression>();
+            var tuple = new List<AphidExpression>();
 
             while (true)
             {
@@ -722,9 +747,9 @@ namespace Components.Aphid.Parser
             }
         }
 
-        private List<Expression> ParseBlock(bool requireSingleExpEos = true)
+        private List<AphidExpression> ParseBlock(bool requireSingleExpEos = true)
         {
-            var statements = new List<Expression>();
+            var statements = new List<AphidExpression>();
 
             if (_currentToken.TokenType == AphidTokenType.LeftBrace)
             {
@@ -757,7 +782,7 @@ namespace Components.Aphid.Parser
             return new LoadLibraryExpression(ParseExpression());
         }
 
-        private Expression ParseTryExpression()
+        private AphidExpression ParseTryExpression()
         {
             NextToken();
             var tryExp = new TryExpression() { TryBody = ParseBlock() };
@@ -791,7 +816,7 @@ namespace Components.Aphid.Parser
             return tryExp;
         }
 
-        private Expression ParseSwitchExpression()
+        private AphidExpression ParseSwitchExpression()
         {
             NextToken();
             Match(AphidTokenType.LeftParenthesis);
@@ -831,7 +856,7 @@ namespace Components.Aphid.Parser
             return switchExp;
         }
 
-        private Expression ParseStatement(bool requireEos = true)
+        private AphidExpression ParseStatement(bool requireEos = true)
         {
             switch (_currentToken.TokenType)
             {
@@ -865,9 +890,9 @@ namespace Components.Aphid.Parser
             }
         }
 
-        public List<Expression> Parse()
+        public List<AphidExpression> Parse()
         {
-            var expressionSequence = new List<Expression>();
+            var expressionSequence = new List<AphidExpression>();
             NextToken();
 
             while (_currentToken.Lexeme != null)
@@ -878,7 +903,7 @@ namespace Components.Aphid.Parser
             return expressionSequence;
         }
 
-        public static List<Expression> Parse(string code)
+        public static List<AphidExpression> Parse(string code)
         {
             return new AphidParser(new AphidLexer(code).GetTokens()).Parse();
         }

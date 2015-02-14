@@ -5,15 +5,20 @@ using System.Text;
 
 namespace Components.Aphid.Parser
 {
-    public class SwitchExpression : Expression, IParentNode
+    public class SwitchExpression : AphidExpression, IParentNode
     {
-        public Expression Expression { get; set; }
+        public override AphidNodeType Type
+        {
+            get { return AphidNodeType.SwitchExpression; }
+        }
+
+        public AphidExpression Expression { get; set; }
 
         public List<SwitchCase> Cases { get; set; }
 
-        public List<Expression> DefaultCase { get; set; }
+        public List<AphidExpression> DefaultCase { get; set; }
 
-        public IEnumerable<Expression> GetChildren()
+        public IEnumerable<AphidExpression> GetChildren()
         {
             return new[] { Expression }
                 .Concat(Cases.SelectMany(x => x.GetChildren()))

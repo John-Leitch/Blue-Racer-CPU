@@ -17,7 +17,7 @@ namespace Components.Aphid.Interpreter
             _loader = loader;
         }
 
-        public List<Expression> Optimize(string script)
+        public List<AphidExpression> Optimize(string script)
         {
             var tokens = new AphidLexer(script).GetTokens();
             var ast = new AphidParser(tokens).Parse();
@@ -25,9 +25,9 @@ namespace Components.Aphid.Interpreter
             return Optimize(ast);            
         }
 
-        public List<Expression> Optimize(List<Expression> ast)
+        public List<AphidExpression> Optimize(List<AphidExpression> ast)
         {
-            var optimizedAst = new List<Expression>();
+            var optimizedAst = new List<AphidExpression>();
 
             foreach (var exp in ast)
             {

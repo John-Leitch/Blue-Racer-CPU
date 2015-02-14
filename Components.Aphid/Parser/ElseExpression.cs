@@ -5,18 +5,18 @@ namespace Components.Aphid.Parser
 {
     public class ElseExpression : IParentNode
     {
-        public List<Expression> Body { get; set; }
+        public List<AphidExpression> Body { get; set; }
 
         public ElseExpression()
         {
         }
 
-        public ElseExpression(List<Expression> body)
+        public ElseExpression(List<AphidExpression> body)
         {
             Body = body;
         }
 
-        public IEnumerable<Expression> GetChildren()
+        public IEnumerable<AphidExpression> GetChildren()
         {
             return Body;
         }

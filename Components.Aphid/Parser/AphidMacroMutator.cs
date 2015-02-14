@@ -9,7 +9,7 @@ namespace Components.Aphid.Parser
     {
         private Dictionary<string, AphidMacro> _macros = new Dictionary<string, AphidMacro>();
 
-        protected override List<Expression> OnMutate(List<Expression> ast)
+        protected override List<AphidExpression> OnMutate(List<AphidExpression> ast)
         {
             var macros = AphidMacro.Parse(ast);
 
@@ -21,7 +21,7 @@ namespace Components.Aphid.Parser
             return ast.Where(x => !_macros.Any(y => y.Value.OriginalExpression == x)).ToList();
         }
 
-        protected override List<Expression> MutateCore(Expression expression, out bool hasChanged)
+        protected override List<AphidExpression> MutateCore(AphidExpression expression, out bool hasChanged)
         {
             var callExp = expression as CallExpression;
 
@@ -48,7 +48,7 @@ namespace Components.Aphid.Parser
             var argTable = callExp.Args
                 .Select((x, i) => new
                 {
-                    Name = macro.Declaration.Args[i],
+                    Name = (IdentifierExpression)macro.Declaration.Args[i],
                     Value = x,
                 })
                 .ToDictionary(x => x.Name.Identifier, x => x.Value);

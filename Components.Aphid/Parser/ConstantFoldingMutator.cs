@@ -14,17 +14,17 @@ namespace Components.Aphid.Parser
                 binOp.RightOperand.GetType() == typeof(T);
         }
 
-        private decimal GetNumber(Expression exp)
+        private decimal GetNumber(AphidExpression exp)
         {
             return ((NumberExpression)exp).Value;
         }
 
-        private string GetString(Expression exp)
+        private string GetString(AphidExpression exp)
         {
             return ((StringExpression)exp).Value;
         }
 
-        protected override List<Expression> MutateCore(Expression expression, out bool hasChanged)
+        protected override List<AphidExpression> MutateCore(AphidExpression expression, out bool hasChanged)
         {
             var binOp = expression as BinaryOperatorExpression;
 
@@ -43,16 +43,11 @@ namespace Components.Aphid.Parser
                 var left = GetString(binOp.LeftOperand);
                 var right = GetString(binOp.RightOperand);
 
-                if (left[0] != right[0])
-                {
-                    hasChanged = false;
-
-                    return null;
-                }
-
-                return new List<Expression> 
+                return new List<AphidExpression> 
                 { 
-                    new StringExpression(left.Remove(left.Length - 1) + right.Substring(1))
+                    new StringExpression(
+                        "'" + left.Substring(1, left.Length - 2) + 
+                        right.Substring(1, right.Length - 2) + "'")
                 };
             }
             else if (OperandsAre<NumberExpression>(binOp))
@@ -63,10 +58,10 @@ namespace Components.Aphid.Parser
                 switch (binOp.Operator)
                 {
                     case AphidTokenType.AdditionOperator:
-                        return new List<Expression> { new NumberExpression(left + right) };
+                        return new List<AphidExpression> { new NumberExpression(left + right) };
 
                     case AphidTokenType.MinusOperator:
-                        return new List<Expression> { new NumberExpression(left - right) };
+                        return new List<AphidExpression> { new NumberExpression(left - right) };
 
                     default:
                         hasChanged = false;

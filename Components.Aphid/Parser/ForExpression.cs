@@ -5,21 +5,26 @@ using System.Text;
 
 namespace Components.Aphid.Parser
 {
-    public class ForExpression : Expression, IParentNode
+    public class ForExpression : AphidExpression, IParentNode
     {
-        public Expression Initialization { get; set; }
+        public override AphidNodeType Type
+        {
+            get { return AphidNodeType.ForExpression; }
+        }
 
-        public Expression Condition { get; set; }
+        public AphidExpression Initialization { get; set; }
 
-        public Expression Afterthought { get; set; }
+        public AphidExpression Condition { get; set; }
 
-        public List<Expression> Body { get; set; }
+        public AphidExpression Afterthought { get; set; }
+
+        public List<AphidExpression> Body { get; set; }
 
         public ForExpression(
-            Expression initialization,
-            Expression condition,
-            Expression afterthought,
-            List<Expression> body)
+            AphidExpression initialization,
+            AphidExpression condition,
+            AphidExpression afterthought,
+            List<AphidExpression> body)
         {
             Initialization = initialization;
             Condition = condition;
@@ -27,7 +32,7 @@ namespace Components.Aphid.Parser
             Body = body;
         }
 
-        public IEnumerable<Expression> GetChildren()
+        public IEnumerable<AphidExpression> GetChildren()
         {
             return new[] { Initialization, Condition, Afterthought }.Concat(Body);
         }

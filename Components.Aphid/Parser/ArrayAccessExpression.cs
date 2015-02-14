@@ -3,26 +3,31 @@ using System.Collections.Generic;
 
 namespace Components.Aphid.Parser
 {
-    public class ArrayAccessExpression : Expression, IParentNode
+    public class ArrayAccessExpression : AphidExpression, IParentNode
     {
-        public Expression ArrayExpression { get; set; }
+        public override AphidNodeType Type
+        {
+            get { return AphidNodeType.ArrayAccessExpression; }
+        }
 
-        public Expression KeyExpression { get; set; }
+        public AphidExpression ArrayExpression { get; set; }
+
+        public AphidExpression KeyExpression { get; set; }
 
         public ArrayAccessExpression ()
         {
         }
 
-        public ArrayAccessExpression(Expression arrayExpression, Expression keyExpression)
+        public ArrayAccessExpression(AphidExpression arrayExpression, AphidExpression keyExpression)
         {
             ArrayExpression = arrayExpression;
             KeyExpression = keyExpression;
         }
 
-        public IEnumerable<Expression> GetChildren()
+        public IEnumerable<AphidExpression> GetChildren()
         {
             return new[] { ArrayExpression, KeyExpression };
-        }
+        }        
     }
 }
 

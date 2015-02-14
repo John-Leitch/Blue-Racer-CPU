@@ -249,7 +249,7 @@ namespace Components.Aphid.Lexer
             return null;
         }
 
-        public static string GetCodeExcerpt(string code, AphidToken token, int surroundingLines = 2)
+        public static string GetCodeExcerpt(string code, AphidToken token, int surroundingLines = 4)
         {
             var matches = Regex.Matches(code, @"(\r\n)|\r|\n").OfType<Match>().ToArray();
             var firstAfter = matches.FirstOrDefault(x => x.Index > token.Index);

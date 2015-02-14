@@ -11,7 +11,7 @@ namespace Components.Aphid.Interpreter
     {
         public string[] Args { get; set; }
 
-        public List<Expression> Body { get; set; }
+        public List<AphidExpression> Body { get; set; }
 
         public AphidObject ParentScope { get; set; }
 

@@ -5,8 +5,13 @@ using Components.Aphid.Lexer;
 
 namespace Components.Aphid.Parser
 {
-    public class BinaryOperatorExpression : Expression, IParentNode
+    public class BinaryOperatorExpression : AphidExpression, IParentNode
     {
+        public override AphidNodeType Type
+        {
+            get { return AphidNodeType.BinaryOperatorExpression; }
+        }
+
         private Dictionary<AphidTokenType, string> _opTable = new Dictionary<AphidTokenType, string>
         {
             { AphidTokenType.AdditionOperator, "+" },
@@ -45,11 +50,11 @@ namespace Components.Aphid.Parser
 
         public AphidTokenType Operator { get; set; }
 
-        public Expression LeftOperand { get; set; }
+        public AphidExpression LeftOperand { get; set; }
         
-        public Expression RightOperand { get; set; }
+        public AphidExpression RightOperand { get; set; }
 
-        public BinaryOperatorExpression(Expression left, AphidTokenType operatorType, Expression right)
+        public BinaryOperatorExpression(AphidExpression left, AphidTokenType operatorType, AphidExpression right)
         {
             LeftOperand = left;
             Operator = operatorType;
@@ -62,7 +67,7 @@ namespace Components.Aphid.Parser
             return string.Format("({0} {1} {2})", LeftOperand, op, RightOperand);
         }
 
-        public IEnumerable<Expression> GetChildren()
+        public IEnumerable<AphidExpression> GetChildren()
         {
             return new[] { LeftOperand, RightOperand };
         }

@@ -7,6 +7,6 @@ namespace Components.Aphid.Parser
 {
     public interface IParentNode
     {
-        IEnumerable<Expression> GetChildren();
+        IEnumerable<AphidExpression> GetChildren();
     }
 }

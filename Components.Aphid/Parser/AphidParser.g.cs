@@ -3,8 +3,8 @@ namespace Components.Aphid.Parser {
     
     public partial class AphidParser {
         
-        private Components.Aphid.Parser.Expression ParseTerm() {
-            Components.Aphid.Parser.Expression operand = this.ParsePrefixUnaryOperatorExpression();
+        private Components.Aphid.Parser.AphidExpression ParseTerm() {
+            Components.Aphid.Parser.AphidExpression operand = this.ParsePrefixUnaryOperatorExpression();
             for (
             ; (((this._currentToken.TokenType == Components.Aphid.Lexer.AphidTokenType.MultiplicationOperator) 
                         || (this._currentToken.TokenType == Components.Aphid.Lexer.AphidTokenType.DivisionOperator)) 
@@ -17,8 +17,8 @@ namespace Components.Aphid.Parser {
             return operand;
         }
         
-        private Components.Aphid.Parser.Expression ParseAdditionExpression() {
-            Components.Aphid.Parser.Expression operand = this.ParseTerm();
+        private Components.Aphid.Parser.AphidExpression ParseAdditionExpression() {
+            Components.Aphid.Parser.AphidExpression operand = this.ParseTerm();
             for (
             ; ((this._currentToken.TokenType == Components.Aphid.Lexer.AphidTokenType.AdditionOperator) 
                         || (this._currentToken.TokenType == Components.Aphid.Lexer.AphidTokenType.MinusOperator)); 
@@ -30,8 +30,8 @@ namespace Components.Aphid.Parser {
             return operand;
         }
         
-        private Components.Aphid.Parser.Expression ParseShiftExpression() {
-            Components.Aphid.Parser.Expression operand = this.ParseAdditionExpression();
+        private Components.Aphid.Parser.AphidExpression ParseShiftExpression() {
+            Components.Aphid.Parser.AphidExpression operand = this.ParseAdditionExpression();
             for (
             ; ((this._currentToken.TokenType == Components.Aphid.Lexer.AphidTokenType.ShiftLeft) 
                         || (this._currentToken.TokenType == Components.Aphid.Lexer.AphidTokenType.ShiftRight)); 
@@ -43,8 +43,8 @@ namespace Components.Aphid.Parser {
             return operand;
         }
         
-        private Components.Aphid.Parser.Expression ParseBinaryAndExpression() {
-            Components.Aphid.Parser.Expression operand = this.ParseShiftExpression();
+        private Components.Aphid.Parser.AphidExpression ParseBinaryAndExpression() {
+            Components.Aphid.Parser.AphidExpression operand = this.ParseShiftExpression();
             for (
             ; (this._currentToken.TokenType == Components.Aphid.Lexer.AphidTokenType.BinaryAndOperator); 
             ) {
@@ -55,8 +55,8 @@ namespace Components.Aphid.Parser {
             return operand;
         }
         
-        private Components.Aphid.Parser.Expression ParseXorExpression() {
-            Components.Aphid.Parser.Expression operand = this.ParseBinaryAndExpression();
+        private Components.Aphid.Parser.AphidExpression ParseXorExpression() {
+            Components.Aphid.Parser.AphidExpression operand = this.ParseBinaryAndExpression();
             for (
             ; (this._currentToken.TokenType == Components.Aphid.Lexer.AphidTokenType.XorOperator); 
             ) {
@@ -67,8 +67,8 @@ namespace Components.Aphid.Parser {
             return operand;
         }
         
-        private Components.Aphid.Parser.Expression ParseBinaryOrExpression() {
-            Components.Aphid.Parser.Expression operand = this.ParseXorExpression();
+        private Components.Aphid.Parser.AphidExpression ParseBinaryOrExpression() {
+            Components.Aphid.Parser.AphidExpression operand = this.ParseXorExpression();
             for (
             ; (this._currentToken.TokenType == Components.Aphid.Lexer.AphidTokenType.BinaryOrOperator); 
             ) {
@@ -79,8 +79,8 @@ namespace Components.Aphid.Parser {
             return operand;
         }
         
-        private Components.Aphid.Parser.Expression ParseComparisonExpression() {
-            Components.Aphid.Parser.Expression operand = this.ParsePostfixUnaryOperationExpression();
+        private Components.Aphid.Parser.AphidExpression ParseComparisonExpression() {
+            Components.Aphid.Parser.AphidExpression operand = this.ParsePostfixUnaryOperationExpression();
             for (
             ; ((((((this._currentToken.TokenType == Components.Aphid.Lexer.AphidTokenType.EqualityOperator) 
                         || (this._currentToken.TokenType == Components.Aphid.Lexer.AphidTokenType.NotEqualOperator)) 
@@ -96,8 +96,8 @@ namespace Components.Aphid.Parser {
             return operand;
         }
         
-        private Components.Aphid.Parser.Expression ParseLogicalExpression() {
-            Components.Aphid.Parser.Expression operand = this.ParseComparisonExpression();
+        private Components.Aphid.Parser.AphidExpression ParseLogicalExpression() {
+            Components.Aphid.Parser.AphidExpression operand = this.ParseComparisonExpression();
             for (
             ; ((this._currentToken.TokenType == Components.Aphid.Lexer.AphidTokenType.AndOperator) 
                         || (this._currentToken.TokenType == Components.Aphid.Lexer.AphidTokenType.OrOperator)); 
@@ -109,8 +109,8 @@ namespace Components.Aphid.Parser {
             return operand;
         }
         
-        private Components.Aphid.Parser.Expression ParseRangeExpression() {
-            Components.Aphid.Parser.Expression operand = this.ParseConditionalExpression();
+        private Components.Aphid.Parser.AphidExpression ParseRangeExpression() {
+            Components.Aphid.Parser.AphidExpression operand = this.ParseConditionalExpression();
             for (
             ; (this._currentToken.TokenType == Components.Aphid.Lexer.AphidTokenType.RangeOperator); 
             ) {
@@ -121,8 +121,8 @@ namespace Components.Aphid.Parser {
             return operand;
         }
         
-        private Components.Aphid.Parser.Expression ParsePipelineExpression() {
-            Components.Aphid.Parser.Expression operand = this.ParseQueryExpression();
+        private Components.Aphid.Parser.AphidExpression ParsePipelineExpression() {
+            Components.Aphid.Parser.AphidExpression operand = this.ParseQueryExpression();
             for (
             ; (this._currentToken.TokenType == Components.Aphid.Lexer.AphidTokenType.PipelineOperator); 
             ) {
@@ -133,8 +133,8 @@ namespace Components.Aphid.Parser {
             return operand;
         }
         
-        private Components.Aphid.Parser.Expression ParseAssignmentExpression() {
-            Components.Aphid.Parser.Expression operand = this.ParsePipelineExpression();
+        private Components.Aphid.Parser.AphidExpression ParseAssignmentExpression() {
+            Components.Aphid.Parser.AphidExpression operand = this.ParsePipelineExpression();
             for (
             ; (((((((((((this._currentToken.TokenType == Components.Aphid.Lexer.AphidTokenType.AssignmentOperator) 
                         || (this._currentToken.TokenType == Components.Aphid.Lexer.AphidTokenType.PlusEqualOperator)) 

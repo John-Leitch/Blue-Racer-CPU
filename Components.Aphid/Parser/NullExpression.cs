@@ -5,7 +5,11 @@ using System.Text;
 
 namespace Components.Aphid.Parser
 {
-    public class NullExpression : Expression
+    public class NullExpression : AphidExpression
     {
+        public override AphidNodeType Type
+        {
+            get { return AphidNodeType.NullExpression; }
+        }
     }
 }

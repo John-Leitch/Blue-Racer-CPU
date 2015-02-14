@@ -7,18 +7,23 @@ namespace Components.Aphid.Parser
 {
     public class IfExpression : ControlFlowExpression, IParentNode
     {
-        public List<Expression> ElseBody { get; set; }
+        public override AphidNodeType Type
+        {
+            get { return AphidNodeType.IfExpression; }
+        }
 
-        public IfExpression(Expression condition, List<Expression> body, List<Expression> elseBody)
+        public List<AphidExpression> ElseBody { get; set; }
+
+        public IfExpression(AphidExpression condition, List<AphidExpression> body, List<AphidExpression> elseBody)
             : base(AphidTokenType.ifKeyword, condition, body)
         {
             ElseBody = elseBody;
         }
 
-        public override IEnumerable<Expression> GetChildren()
+        public override IEnumerable<AphidExpression> GetChildren()
         {
             return base.GetChildren().Concat(ElseBody);
-        }
+        }        
     }
 }
 

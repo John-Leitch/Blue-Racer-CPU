@@ -6,21 +6,26 @@ using System.Text;
 
 namespace Components.Aphid.Parser
 {
-    public class TernaryOperatorExpression : Expression, IParentNode
+    public class TernaryOperatorExpression : AphidExpression, IParentNode
     {
+        public override AphidNodeType Type
+        {
+            get { return AphidNodeType.TernaryOperatorExpression; }
+        }
+
         public AphidTokenType Operator { get; set; }
 
-        public Expression FirstOperand { get; set; }
+        public AphidExpression FirstOperand { get; set; }
 
-        public Expression SecondOperand { get; set; }
+        public AphidExpression SecondOperand { get; set; }
 
-        public Expression ThirdOperand { get; set; }
+        public AphidExpression ThirdOperand { get; set; }
 
         public TernaryOperatorExpression(
             AphidTokenType op,
-            Expression firstOperand,
-            Expression secondOperand,
-            Expression thirdOperand)
+            AphidExpression firstOperand,
+            AphidExpression secondOperand,
+            AphidExpression thirdOperand)
         {
             Operator = op;
             FirstOperand = firstOperand;
@@ -28,7 +33,7 @@ namespace Components.Aphid.Parser
             ThirdOperand = thirdOperand;
         }
 
-        public IEnumerable<Expression> GetChildren()
+        public IEnumerable<AphidExpression> GetChildren()
         {
             return new[] { FirstOperand, SecondOperand, ThirdOperand };
         }

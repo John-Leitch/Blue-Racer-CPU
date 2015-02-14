@@ -7,18 +7,18 @@ namespace Components.Aphid.Parser
 {
     public class AphidMacroBodyMutator : AphidMutator
     {
-        private Dictionary<string, Expression> _arguments;
+        private Dictionary<string, AphidExpression> _arguments;
 
-        public AphidMacroBodyMutator(Dictionary<string, Expression> arguments)
+        public AphidMacroBodyMutator(Dictionary<string, AphidExpression> arguments)
         {
             _arguments = arguments;
         }
 
-        protected override List<Expression> MutateCore(Expression expression, out bool hasChanged)
+        protected override List<AphidExpression> MutateCore(AphidExpression expression, out bool hasChanged)
         {
             var idExp = expression as IdentifierExpression;
 
-            Expression argument;
+            AphidExpression argument;
 
             if (idExp == null || !_arguments.TryGetValue(idExp.Identifier, out argument))
             {
@@ -29,7 +29,7 @@ namespace Components.Aphid.Parser
 
             hasChanged = true;
 
-            return new List<Expression> { argument };
+            return new List<AphidExpression> { argument };
         }
     }
 }

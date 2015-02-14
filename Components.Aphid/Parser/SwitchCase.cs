@@ -7,11 +7,11 @@ namespace Components.Aphid.Parser
 {
     public class SwitchCase : IParentNode
     {
-        public List<Expression> Cases { get; set; }
+        public List<AphidExpression> Cases { get; set; }
 
-        public List<Expression> Body { get; set; }
+        public List<AphidExpression> Body { get; set; }
 
-        public IEnumerable<Expression> GetChildren()
+        public IEnumerable<AphidExpression> GetChildren()
         {
             return Cases.Concat(Body);
         }

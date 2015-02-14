@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace Components.Aphid.Parser
 {
-    public class MemberExpression : Expression, IParentNode
+    public class MemberExpression : AphidExpression, IParentNode
     {
-        public IdentifierExpression Variable { get; set; } 
+        public override AphidNodeType Type
+        {
+            get { return AphidNodeType.MemberExpression; }
+        }
+
+        public IdentifierExpression Variable { get; set; }
+
         public List<IdentifierExpression> Members { get; set; }
 
-        public IEnumerable<Expression> GetChildren()
+        public IEnumerable<AphidExpression> GetChildren()
         {
             return new[] { Variable }.Concat(Members);
         }

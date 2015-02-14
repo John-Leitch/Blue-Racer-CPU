@@ -6,9 +6,23 @@ using System.Threading.Tasks;
 
 namespace Components.Aphid.Parser
 {
-    public class ObjectExpression : Expression, IParentNode
+    public class ObjectExpression : AphidExpression, IParentNode
     {
+        public override AphidNodeType Type
+        {
+            get { return AphidNodeType.ObjectExpression; }
+        }
+
         public List<BinaryOperatorExpression> Pairs { get; set; }
+
+        public ObjectExpression()
+        {
+        }
+
+        public ObjectExpression(List<BinaryOperatorExpression> pairs)
+        {
+            Pairs = pairs;
+        }
 
         public override string ToString()
         {
@@ -20,7 +34,7 @@ namespace Components.Aphid.Parser
                     .Aggregate((x, y) => x + ", " + y));
         }
 
-        public IEnumerable<Expression> GetChildren()
+        public IEnumerable<AphidExpression> GetChildren()
         {
             return Pairs;
         }

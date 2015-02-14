@@ -5,17 +5,22 @@ using System.Text;
 
 namespace Components.Aphid.Parser
 {
-    public class TryExpression : Expression, IParentNode
+    public class TryExpression : AphidExpression, IParentNode
     {
-        public List<Expression> TryBody { get; set; }
+        public override AphidNodeType Type
+        {
+            get { return AphidNodeType.TryExpression; }
+        }
 
-        public List<Expression> CatchBody { get; set; }
+        public List<AphidExpression> TryBody { get; set; }
+
+        public List<AphidExpression> CatchBody { get; set; }
 
         public IdentifierExpression CatchArg { get; set; }
 
-        public List<Expression> FinallyBody { get; set; }
+        public List<AphidExpression> FinallyBody { get; set; }
 
-        public IEnumerable<Expression> GetChildren()
+        public IEnumerable<AphidExpression> GetChildren()
         {
             return TryBody.Concat(CatchBody).Concat(new[] { CatchArg }).Concat(FinallyBody);
         }

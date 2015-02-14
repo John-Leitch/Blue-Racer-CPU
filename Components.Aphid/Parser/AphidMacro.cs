@@ -20,7 +20,7 @@ namespace Components.Aphid.Parser
             OriginalExpression = originalExpression;
         }
 
-        public static AphidMacro[] Parse(List<Expression> ast)
+        public static AphidMacro[] Parse(List<AphidExpression> ast)
         {
             return ast
                 .OfType<BinaryOperatorExpression>()

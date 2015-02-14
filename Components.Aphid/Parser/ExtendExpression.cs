@@ -5,19 +5,24 @@ using System.Text;
 
 namespace Components.Aphid.Parser
 {
-    public class ExtendExpression : Expression, IParentNode
+    public class ExtendExpression : AphidExpression, IParentNode
     {
-        public string Type { get; set; }
+        public override AphidNodeType Type
+        {
+            get { return AphidNodeType.ExtendExpression; }
+        }
+
+        public string ExtendType { get; set; }
 
         public ObjectExpression Object { get; set; }
 
         public ExtendExpression(string type, ObjectExpression obj)
         {
-            Type = type;
+            ExtendType = type;
             Object = obj;
         }
 
-        public IEnumerable<Expression> GetChildren()
+        public IEnumerable<AphidExpression> GetChildren()
         {
             return new[] { Object };
         }

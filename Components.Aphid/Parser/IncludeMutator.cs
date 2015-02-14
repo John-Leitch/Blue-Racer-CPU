@@ -1,4 +1,5 @@
 ﻿using Components.Aphid.Interpreter;
+using Components.Aphid.Lexer;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,12 +12,24 @@ namespace Components.Aphid.Parser
     {
         AphidLoader _loader = new AphidLoader(null);
 
+        public bool UseImplicitReturns { get; private set; }
+
         public AphidLoader Loader
         {
             get { return _loader; }
         }
 
-        protected override List<Expression> MutateCore(Expression expression, out bool hasChanged)
+        public IncludeMutator(bool useImplicitReturns)
+        {
+            UseImplicitReturns = useImplicitReturns;
+        }
+
+        public IncludeMutator()
+            : this(true)
+        {
+        }
+
+        protected override List<AphidExpression> MutateCore(AphidExpression expression, out bool hasChanged)
         {
             var loadExp = expression as LoadScriptExpression;
 
@@ -33,17 +46,20 @@ namespace Components.Aphid.Parser
 
             if (scriptExp == null)
             {
-                throw new InvalidOperationException();
+                throw new AphidRuntimeException(
+                    "Invalid load script operand '{0}'.",
+                    loadExp.FileExpression);
             }
 
             var script = _loader.FindScriptFile(StringParser.Parse(scriptExp.Value));
 
             if (!File.Exists(script))
             {
-                throw new InvalidOperationException();
+                throw new AphidRuntimeException("Could not find script '{0}'.", scriptExp.Value);
             }
 
-            return AphidParser.Parse(File.ReadAllText(script));
+            var tokens = new AphidLexer(File.ReadAllText(script)).GetTokens();
+            return new AphidParser(tokens) { UseImplicitReturns = UseImplicitReturns }.Parse();
         }
     }
 }

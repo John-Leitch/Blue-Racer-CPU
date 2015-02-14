@@ -3,20 +3,25 @@ using System.Collections.Generic;
 
 namespace Components.Aphid.Parser
 {
-    public class DynamicMemberExpression : Expression, IParentNode
+    public class DynamicMemberExpression : AphidExpression, IParentNode
     {
-        public Expression MemberExpression { get; set; }
+        public override AphidNodeType Type
+        {
+            get { return AphidNodeType.DynamicMemberExpression; }
+        }
+
+        public AphidExpression MemberExpression { get; set; }
 
         public DynamicMemberExpression ()
         {
         }
 
-        public DynamicMemberExpression (Expression memberExpression)
+        public DynamicMemberExpression (AphidExpression memberExpression)
         {
             MemberExpression = memberExpression;
         }
 
-        public IEnumerable<Expression> GetChildren()
+        public IEnumerable<AphidExpression> GetChildren()
         {
             return new[] { MemberExpression };
         }
