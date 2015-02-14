@@ -40,7 +40,7 @@ namespace Components.BlueRacer
             return ((IdentifierExpression)exp.RightOperand).Identifier;
         }
 
-        private string GetReadWriteId(Expression exp)
+        private string GetReadWriteId(AphidExpression exp)
         {
             if (exp is IdentifierExpression)
             {
@@ -97,12 +97,12 @@ namespace Components.BlueRacer
             }
         }
 
-        private uint GetUInt(Expression expression)
+        private uint GetUInt(AphidExpression expression)
         {
             return (uint)((NumberExpression)expression).Value;
         }
 
-        private int GetOffset(Expression expression)
+        private int GetOffset(AphidExpression expression)
         {
             if (!(expression is UnaryOperatorExpression))
             {
@@ -633,7 +633,7 @@ namespace Components.BlueRacer
             return b;
         }
 
-        public byte[] Assemble(Expression expression)
+        public byte[] Assemble(AphidExpression expression)
         {
             if (expression is BinaryOperatorExpression)
             {

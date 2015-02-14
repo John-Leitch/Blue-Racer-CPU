@@ -77,7 +77,7 @@ namespace Components.BlueRacer
                 parser.ParseExpression());
 
             var interpreter = new AphidInterpreter();
-            interpreter.Interpret(new List<Expression> { exp });
+            interpreter.Interpret(new List<AphidExpression> { exp });
 
             var val = interpreter.CurrentScope[varName].Value;
 

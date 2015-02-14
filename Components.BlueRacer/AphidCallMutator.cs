@@ -12,14 +12,14 @@ namespace Components.BlueRacer
     {
         private string[] _mnemonics = InstructionMnemonic.GetAll();
 
-        private CallExpression CreatePush(Expression value)
+        private CallExpression CreatePush(AphidExpression value)
         {
             return new CallExpression(
                 new IdentifierExpression(InstructionMnemonic.Push),
                 value);
         }
 
-        protected override List<Expression> MutateCore(Expression expression, out bool hasChanged)
+        protected override List<AphidExpression> MutateCore(AphidExpression expression, out bool hasChanged)
         {
             var call = expression as CallExpression;
             string funcName = null;
@@ -41,7 +41,7 @@ namespace Components.BlueRacer
                 return null;
             }
 
-            var mutated = new List<Expression>();
+            var mutated = new List<AphidExpression>();
             mutated.AddRange(call.Args.Reverse().Select(CreatePush));
             mutated.Add(new CallExpression(
                 new IdentifierExpression(InstructionMnemonic.Call),

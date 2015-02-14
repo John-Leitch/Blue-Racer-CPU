@@ -27,128 +27,131 @@ namespace Components.BlueRacer
 
         private AphidMacro[] macros = new AphidMacro[0];
 
-        public List<Expression> ExpandMacros(List<Expression> ast)
+        public List<AphidExpression> ExpandMacros(List<AphidExpression> ast)
         {
-            var ast2 = new List<Expression>(ast);
-            macros = macros.Concat(AphidMacro.Parse(ast)).ToArray();
-            var removed = ast2.RemoveAll(x => macros.Any(y => y.OriginalExpression == x));
+            var mutator = new AphidMacroMutator();
+            return mutator.MutateRecursively(ast);
 
-            return ExpandMacros(ast2, macros);
+            //var ast2 = new List<AphidExpression>(ast);
+            //macros = macros.Concat(AphidMacro.Parse(ast)).ToArray();
+            //var removed = ast2.RemoveAll(x => macros.Any(y => y.OriginalExpression == x));
+
+            //return ExpandMacros(ast2, macros);
         }
 
-        private List<Expression> ExpandMacros(List<Expression> ast, AphidMacro[] macros)
-        {
-            if (ast == null)
-            {
-                return null;
-            }
+        //private List<AphidExpression> ExpandMacros(List<AphidExpression> ast, AphidMacro[] macros)
+        //{
+        //    if (ast == null)
+        //    {
+        //        return null;
+        //    }
 
-            var ast2 = new List<Expression>();
+        //    var ast2 = new List<AphidExpression>();
 
-            foreach (var exp in ast)
-            {
-                ast2.AddRange(ExpandMacros(exp, macros));
-            }
+        //    foreach (var exp in ast)
+        //    {
+        //        ast2.AddRange(ExpandMacros(exp, macros));
+        //    }
 
-            return ast2;
-        }
+        //    return ast2;
+        //}
 
-        private List<Expression> ExpandMacros(Expression expression, AphidMacro[] macros)
-        {
-            //var cfg = ExpandControlFlowExpressions(expression);
+        //private List<AphidExpression> ExpandMacros(AphidExpression expression, AphidMacro[] macros)
+        //{
+        //    //var cfg = ExpandControlFlowExpressions(expression);
 
-            //if (cfg != null)
-            //{
-            //    return cfg.SelectMany(x => ExpandMacros(x, macros)).ToList();
-            //}
+        //    //if (cfg != null)
+        //    //{
+        //    //    return cfg.SelectMany(x => ExpandMacros(x, macros)).ToList();
+        //    //}
 
-            var expanded = new List<Expression>();
+        //    var expanded = new List<AphidExpression>();
 
-            if (expression is CallExpression)
-            {
-                var call = (CallExpression)expression;
-                var macro = GetMacro((CallExpression)expression, macros);
+        //    if (expression is CallExpression)
+        //    {
+        //        var call = (CallExpression)expression;
+        //        var macro = GetMacro((CallExpression)expression, macros);
 
-                if (macro != null)
-                {
-                    expanded.AddRange(macro.Replace(call.Args));
-                }
-                else
-                {
-                    expanded.Add(new CallExpression(
-                        ExpandMacros(call.FunctionExpression, macros).Single(),
-                        call.Args.Select(x => ExpandMacros(x, macros).Single())));
-                }
-            }
-            else if (expression is UnaryOperatorExpression)
-            {
-                var unOp = (UnaryOperatorExpression)expression;
+        //        if (macro != null)
+        //        {
+        //            expanded.AddRange(macro.Replace(call.Args));
+        //        }
+        //        else
+        //        {
+        //            expanded.Add(new CallExpression(
+        //                ExpandMacros(call.FunctionExpression, macros).Single(),
+        //                call.Args.Select(x => ExpandMacros(x, macros).Single())));
+        //        }
+        //    }
+        //    else if (expression is UnaryOperatorExpression)
+        //    {
+        //        var unOp = (UnaryOperatorExpression)expression;
 
-                expanded.Add(new UnaryOperatorExpression(
-                    unOp.Operator,
-                    ExpandMacros(unOp.Operand, macros).Single())
-                {
-                    IsPostfix = unOp.IsPostfix
-                });
-            }
-            else if (expression is BinaryOperatorExpression)
-            {
-                var binOp = (BinaryOperatorExpression)expression;
+        //        expanded.Add(new UnaryOperatorExpression(
+        //            unOp.Operator,
+        //            ExpandMacros(unOp.Operand, macros).Single())
+        //        {
+        //            IsPostfix = unOp.IsPostfix
+        //        });
+        //    }
+        //    else if (expression is BinaryOperatorExpression)
+        //    {
+        //        var binOp = (BinaryOperatorExpression)expression;
 
-                expanded.Add(new BinaryOperatorExpression(
-                    ExpandMacros(binOp.LeftOperand, macros).Single(),
-                    binOp.Operator,
-                    ExpandMacros(binOp.RightOperand, macros).Single()));
-            }
-            else if (expression is IfExpression)
-            {
-                var ifExp = (IfExpression)expression;
+        //        expanded.Add(new BinaryOperatorExpression(
+        //            ExpandMacros(binOp.LeftOperand, macros).Single(),
+        //            binOp.Operator,
+        //            ExpandMacros(binOp.RightOperand, macros).Single()));
+        //    }
+        //    else if (expression is IfExpression)
+        //    {
+        //        var ifExp = (IfExpression)expression;
 
-                expanded.Add(new IfExpression(
-                    ExpandMacros(ifExp.Condition, macros).Single(),
-                    ExpandMacros(ifExp.Body, macros),
-                    ExpandMacros(ifExp.ElseBody, macros)));
-            }
-            else if (expression is ControlFlowExpression)
-            {
-                var cfExp = (ControlFlowExpression)expression;
+        //        expanded.Add(new IfExpression(
+        //            ExpandMacros(ifExp.Condition, macros).Single(),
+        //            ExpandMacros(ifExp.Body, macros),
+        //            ExpandMacros(ifExp.ElseBody, macros)));
+        //    }
+        //    else if (expression is ControlFlowExpression)
+        //    {
+        //        var cfExp = (ControlFlowExpression)expression;
 
-                expanded.Add(new ControlFlowExpression(
-                    cfExp.Type,
-                    ExpandMacros(cfExp.Condition, macros).Single(),
-                    ExpandMacros(cfExp.Body, macros)));
+        //        expanded.Add(new ControlFlowExpression(
+        //            cfExp.Type,
+        //            ExpandMacros(cfExp.Condition, macros).Single(),
+        //            ExpandMacros(cfExp.Body, macros)));
 
-            }
-            else if (expression is ForExpression)
-            {
-                var forExp = (ForExpression)expression;
+        //    }
+        //    else if (expression is ForExpression)
+        //    {
+        //        var forExp = (ForExpression)expression;
 
-                expanded.Add(new ForExpression(
-                    ExpandMacros(forExp.Initialization, macros).Single(),
-                    ExpandMacros(forExp.Condition, macros).Single(),
-                    ExpandMacros(forExp.Afterthought, macros).Single(),
-                    ExpandMacros(forExp.Body, macros)));
-            }
-            else if (expression is LoadScriptExpression)
-            {
-                var lsExp = (LoadScriptExpression)expression;
+        //        expanded.Add(new ForExpression(
+        //            ExpandMacros(forExp.Initialization, macros).Single(),
+        //            ExpandMacros(forExp.Condition, macros).Single(),
+        //            ExpandMacros(forExp.Afterthought, macros).Single(),
+        //            ExpandMacros(forExp.Body, macros)));
+        //    }
+        //    else if (expression is LoadScriptExpression)
+        //    {
+        //        var lsExp = (LoadScriptExpression)expression;
 
-                expanded.Add(new LoadScriptExpression(
-                    ExpandMacros(lsExp.FileExpression, macros).Single()));
-            }
-            else if (expression is IParentNode)
-            {
-                throw new InvalidOperationException();
-            }
-            else
-            {
-                expanded.Add(expression);
-            }
+        //        expanded.Add(new LoadScriptExpression(
+        //            ExpandMacros(lsExp.FileExpression, macros).Single()));
+        //    }
+        //    else if (expression is IParentNode)
+        //    {
+        //        throw new InvalidOperationException();
+        //    }
+        //    else
+        //    {
+        //        expanded.Add(expression);
+        //    }
 
-            return expanded;
-        }
+        //    return expanded;
+        //}
 
-        public List<Expression> ExpandIfExpression(IfExpression expression)
+        public List<AphidExpression> ExpandIfExpression(IfExpression expression)
         {
             var g = Guid.NewGuid();
 
@@ -156,7 +159,7 @@ namespace Components.BlueRacer
                 elseLabel = new IdentifierExpression("Else_" + g),
                 endIfLabel = new IdentifierExpression("EndIf_" + g);
 
-            var ast = new List<Expression>
+            var ast = new List<AphidExpression>
             {
                 ifLabel,
                 expression.Condition,
@@ -172,14 +175,14 @@ namespace Components.BlueRacer
             return ast;
         }
 
-        public List<Expression> ExpandWhileExpression(ControlFlowExpression expression)
+        public List<AphidExpression> ExpandWhileExpression(ControlFlowExpression expression)
         {
             var g = Guid.NewGuid();
 
             IdentifierExpression whileLabel = new IdentifierExpression("While_" + g),
                 endWhileLabel = new IdentifierExpression("EndWhileIf_" + g);
 
-            var ast = new List<Expression>
+            var ast = new List<AphidExpression>
             {
                 whileLabel,
                 expression.Condition,
@@ -193,12 +196,12 @@ namespace Components.BlueRacer
             return ast;
         }
 
-        private bool AnyControlFlowExpressions(List<Expression> ast)
+        private bool AnyControlFlowExpressions(List<AphidExpression> ast)
         {
             return ast.OfType<IfExpression>().Any() || ast.OfType<ControlFlowExpression>().Any();
         }
 
-        private List<Expression> ExpandControlFlowExpressions(Expression expression)
+        private List<AphidExpression> ExpandControlFlowExpressions(AphidExpression expression)
         {
             if (expression is IfExpression)
             {
@@ -210,7 +213,7 @@ namespace Components.BlueRacer
 
                 switch (cfExp.Type)
                 {
-                    case AphidTokenType.whileKeyword:
+                    case AphidNodeType.WhileExpression:
                         return ExpandWhileExpression(cfExp);
 
                     default:
@@ -223,9 +226,9 @@ namespace Components.BlueRacer
             }
         }
 
-        public List<Expression> ExpandControlFlowExpressions(List<Expression> ast)
+        public List<AphidExpression> ExpandControlFlowExpressions(List<AphidExpression> ast)
         {
-            var ast2 = new List<Expression>(ast);
+            var ast2 = new List<AphidExpression>(ast);
 
             var ifs = ast
                 .Select(x => new

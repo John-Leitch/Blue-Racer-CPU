@@ -37,7 +37,10 @@ namespace Components.BlueRacer
             return mutatedType;
         }
 
-        protected override List<Expression> MutateCore(Expression expression, out bool hasChanged)
+        // Todo:
+        // Handle Rx = Rx + y
+        // Handle Rx = *Ry + z
+        protected override List<AphidExpression> MutateCore(AphidExpression expression, out bool hasChanged)
         {
             hasChanged = false;
 
@@ -56,7 +59,7 @@ namespace Components.BlueRacer
             }
 
             hasChanged = true;
-            Expression left = binOpOperand.LeftOperand, right = binOpOperand.RightOperand;
+            AphidExpression left = binOpOperand.LeftOperand, right = binOpOperand.RightOperand;
 
             if (right is IdentifierExpression && !(left is IdentifierExpression))
             {
@@ -86,7 +89,7 @@ namespace Components.BlueRacer
                     MutateOperator(binOpOperand.Operator),
                     right);
 
-                return new List<Expression> { assignmentExp, operationExp };
+                return new List<AphidExpression> { assignmentExp, operationExp };
             }
             else
             {
@@ -100,7 +103,7 @@ namespace Components.BlueRacer
                     AphidTokenType.AssignmentOperator,
                     left);
 
-                return new List<Expression> { operationExp, assignmentExp };
+                return new List<AphidExpression> { operationExp, assignmentExp };
             }
         }
     }

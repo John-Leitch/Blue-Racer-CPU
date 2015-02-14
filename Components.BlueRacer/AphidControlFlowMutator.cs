@@ -11,7 +11,7 @@ namespace Components.BlueRacer
         private IdentifierExpression gotoId = new IdentifierExpression("goto"),
                 gotoFalseId = new IdentifierExpression("gotoFalse");
 
-        private Expression MutateCondition(Expression condition)
+        private AphidExpression MutateCondition(AphidExpression condition)
         {
             if (condition is IdentifierExpression)
             {
@@ -26,7 +26,7 @@ namespace Components.BlueRacer
             }
         }
 
-        public List<Expression> ExpandIfExpression(IfExpression expression)
+        public List<AphidExpression> ExpandIfExpression(IfExpression expression)
         {
             var g = Guid.NewGuid();
 
@@ -34,7 +34,7 @@ namespace Components.BlueRacer
                 elseLabel = new IdentifierExpression("Else_" + g),
                 endIfLabel = new IdentifierExpression("EndIf_" + g);
 
-            var ast = new List<Expression>
+            var ast = new List<AphidExpression>
             {
                 ifLabel,
                 MutateCondition(expression.Condition),
@@ -55,14 +55,14 @@ namespace Components.BlueRacer
             return ast;
         }
 
-        public List<Expression> ExpandWhileExpression(ControlFlowExpression expression)
+        public List<AphidExpression> ExpandWhileExpression(ControlFlowExpression expression)
         {
             var g = Guid.NewGuid();
 
             IdentifierExpression whileLabel = new IdentifierExpression("While_" + g),
                 endWhileLabel = new IdentifierExpression("EndWhileIf_" + g);
 
-            var ast = new List<Expression>
+            var ast = new List<AphidExpression>
             {
                 whileLabel,
                 MutateCondition(expression.Condition),
@@ -76,24 +76,24 @@ namespace Components.BlueRacer
             return ast;
         }
 
-        public List<Expression> ExpandForExpression(ForExpression expression)
+        public List<AphidExpression> ExpandForExpression(ForExpression expression)
         {
-            var body = new List<Expression>(expression.Body);
+            var body = new List<AphidExpression>(expression.Body);
             body.Add(expression.Afterthought);
 
-            return new List<Expression>()
+            return new List<AphidExpression>()
             {
                 expression.Initialization,
-                new ControlFlowExpression(AphidTokenType.whileKeyword, MutateCondition(expression.Condition), body),
+                new WhileExpression(MutateCondition(expression.Condition), body),
             };
         }
 
-        private bool AnyControlFlowExpressions(List<Expression> ast)
+        private bool AnyControlFlowExpressions(List<AphidExpression> ast)
         {
             return ast.OfType<IfExpression>().Any() || ast.OfType<ControlFlowExpression>().Any();
         }
 
-        private List<Expression> ExpandControlFlowExpressions(Expression expression)
+        private List<AphidExpression> ExpandControlFlowExpressions(AphidExpression expression)
         {
             if (expression is IfExpression)
             {
@@ -105,7 +105,7 @@ namespace Components.BlueRacer
 
                 switch (cfExp.Type)
                 {
-                    case AphidTokenType.whileKeyword:
+                    case AphidNodeType.WhileExpression:
                         return ExpandWhileExpression(cfExp);
 
                     default:
@@ -122,7 +122,7 @@ namespace Components.BlueRacer
             }
         }
 
-        protected override List<Expression> MutateCore(Expression expression, out bool hasChanged)
+        protected override List<AphidExpression> MutateCore(AphidExpression expression, out bool hasChanged)
         {
             var ast = ExpandControlFlowExpressions(expression);
             hasChanged = ast != null;

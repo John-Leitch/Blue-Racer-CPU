@@ -11,7 +11,7 @@ namespace Components.BlueRacer
 {
     public class AphidIncludeMutator : AphidMutator
     {
-        protected override List<Expression> MutateCore(Expression expression, out bool hasChanged)
+        protected override List<AphidExpression> MutateCore(AphidExpression expression, out bool hasChanged)
         {
             if (!(expression is LoadScriptExpression))
             {
