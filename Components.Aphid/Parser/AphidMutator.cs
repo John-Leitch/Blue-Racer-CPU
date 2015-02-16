@@ -244,7 +244,7 @@ namespace Components.Aphid.Parser
             return ast;
         }
 
-        public void Reset()
+        public virtual void Reset()
         {
             HasMutated = false;
         }

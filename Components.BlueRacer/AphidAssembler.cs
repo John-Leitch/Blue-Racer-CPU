@@ -1,12 +1,9 @@
-﻿using Components;
-using Components.Aphid.Lexer;
+﻿using Components.Aphid.Lexer;
 using Components.Aphid.Parser;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Components.BlueRacer
 {
@@ -84,7 +81,7 @@ namespace Components.BlueRacer
                             throw new NotImplementedException();
                     }
                 }
-                else 
+                else
                 {
                     throw new NotImplementedException();
                 }
@@ -117,7 +114,7 @@ namespace Components.BlueRacer
             }
 
             var binOp = (BinaryOperatorExpression)unOp.Operand;
-            
+
             int offset;
 
             if (binOp.LeftOperand is NumberExpression)
@@ -158,7 +155,7 @@ namespace Components.BlueRacer
             var rightId = GetReadWriteId(expression.RightOperand);
             var leftOffset = GetOffset(expression.LeftOperand);
             var rightOffset = GetOffset(expression.RightOperand);
-            
+
             if (leftOffset != 0 && rightOffset != 0)
             {
                 throw new InvalidOperationException();
@@ -173,7 +170,7 @@ namespace Components.BlueRacer
 
             b[0] = (byte)InstructionOpcode.ExtMultiStage;
             b[2] = (byte)OpcodeTable.RegisterTable[leftId];
-            b[3] = (byte)OpcodeTable.RegisterTable[rightId];   
+            b[3] = (byte)OpcodeTable.RegisterTable[rightId];
 
             if (expression.LeftOperand is UnaryOperatorExpression)
             {
@@ -206,7 +203,7 @@ namespace Components.BlueRacer
                 throw new InvalidOperationException();
             }
 
-            b[4] = (byte)offset;         
+            b[4] = (byte)offset;
 
             return b;
         }
@@ -523,7 +520,7 @@ namespace Components.BlueRacer
 
                 case InstructionMnemonic.Push:
                 case InstructionMnemonic.Pop:
-                    exp = expression.Args.Single();                    
+                    exp = expression.Args.Single();
 
                     if (exp is IdentifierExpression)
                     {
@@ -555,7 +552,7 @@ namespace Components.BlueRacer
                             {
                                 case InstructionMnemonic.Push:
                                     b[0] = (byte)InstructionOpcode.Push_Const;
-                                    break;                                
+                                    break;
 
                                 default:
                                     throw new InvalidOperationException();
@@ -574,7 +571,7 @@ namespace Components.BlueRacer
                     else if (exp is NumberExpression)
                     {
                         b[0] = (byte)InstructionOpcode.Push_Const;
-                        
+
                         BitConverter
                             .GetBytes(GetUInt(exp))
                             .Reverse()
@@ -666,13 +663,11 @@ namespace Components.BlueRacer
 
             var ast = AphidParser.Parse(asm);
 
+            ast = new AphidStructMutator().MutateRecursively(ast);
             ast = new AphidIncludeMutator().MutateRecursively(ast);
-            
-            //ast = _preprocessor.ExpandControlFlowExpressions(ast);
-            for (int i = 0; i < 4; i++)
-                ast = _preprocessor.ExpandMacros(ast);
 
-            
+            //ast = _preprocessor.ExpandControlFlowExpressions(ast);
+            ast = _preprocessor.ExpandMacros(ast);
 
             AphidControlFlowMutator cfMutator;
             do
