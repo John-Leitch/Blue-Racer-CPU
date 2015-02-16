@@ -503,11 +503,11 @@ namespace Components.Aphid.Parser
 
         private BinaryOperatorExpression ParseKeyValuePairExpression()
         {
-            var id = new IdentifierExpression(_currentToken.Lexeme);
-            NextToken();
+            var id = ParseIdentifierExpression();
             AphidExpression exp;
 
-            if (_currentToken.TokenType == AphidTokenType.ColonOperator)
+            if (_currentToken.TokenType == AphidTokenType.ColonOperator ||
+                _currentToken.TokenType == AphidTokenType.AssignmentOperator)
             {
                 NextToken();
                 exp = ParseExpression();
