@@ -37,14 +37,14 @@ namespace Components.BlueRacer
 
         public void ReadCommand()
         {
-            //var cd = Directory
-            //    .GetCurrentDirectory()
-            //    .Split('\\')
-            //    .Select(x => string.Format("~White~{0}~R~", x))
-            //    .Join("~Cyan~\\~R~");
+            var cd = Directory
+                .GetCurrentDirectory()
+                .Split('\\')
+                .Select(x => string.Format("~White~{0}~R~", x))
+                .Join("~Cyan~\\~R~");
 
-            //Cli.Write("{0}~Cyan~>~R~", cd);
-            Cli.Write("~White~#~R~~Cyan~>~R~");
+            Cli.Write("{0}~Cyan~>~R~", cd);
+            //Cli.Write("~White~#~R~~Cyan~>~R~");
             var cmd = Console.ReadLine();
             var args = ArgLexer.Tokenize(cmd);
             InterpretCommand(args);

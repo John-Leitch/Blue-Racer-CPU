@@ -56,9 +56,11 @@
     <Compile Include="BackgroundAction.cs" />
     <Compile Include="BackgroundService.cs" />
     <Compile Include="BigEndianBinaryReader.cs" />
+    <Compile Include="BigEndianBitConverter.cs" />
     <Compile Include="Bindable.cs" />
     <Compile Include="ByteArrayExtension.cs" />
     <Compile Include="ByteFieldAttribute.cs" />
+    <Compile Include="ByteHelper.cs" />
     <Compile Include="ByteSerializable.cs" />
     <Compile Include="ByteSerializer.cs" />
     <Compile Include="ClassLoader.cs" />
@@ -81,7 +83,9 @@
     <Compile Include="DirectoryInfoExtension.cs" />
     <Compile Include="Endianness.cs" />
     <Compile Include="Entropy.cs" />
+    <Compile Include="EnumHelper.cs" />
     <Compile Include="EnvironmentHelper.cs" />
+    <Compile Include="ExceptionHelper.cs" />
     <Compile Include="IByteSerializable.cs" />
     <Compile Include="ICloneable.cs" />
     <Compile Include="IEnumerableExtension.cs" />
@@ -150,6 +154,7 @@
     <Compile Include="Net\SmsNumber.cs" />
     <Compile Include="Net\SmtpSmsClient.cs" />
     <Compile Include="Net\TcpClientError.cs" />
+    <Compile Include="Net\TcpHelper.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="PathHelper.cs" />
     <Compile Include="PInvoke\AccessViolationFlag.cs" />
