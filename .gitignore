@@ -218,3 +218,9 @@ $RECYCLE.BIN/
 *.tdf
 *.cdb
 *.hdb
+
+BlueRacer/McuTest-auto.v
+BlueRacer/db/
+BlueRacer/incremental_db/
+BlueRacer/vsim.wlf
+BlueRacer/work/
