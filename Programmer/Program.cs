@@ -9,6 +9,16 @@ using SecretLabs.NETMF.Hardware.Netduino;
 using Microsoft.SPOT.Net.NetworkInformation;
 using Processor;
 
+namespace System.Diagnostics
+{
+    public enum DebuggerBrowsableState
+    {
+        Never,
+        Collapsed,
+        RootHidden
+    }
+}
+
 namespace Programmer
 {
     public class Program
