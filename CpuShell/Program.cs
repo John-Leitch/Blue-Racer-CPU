@@ -23,7 +23,14 @@ namespace CpuShell
 
             while (true)
             {
-                console.ReadCommand();
+                try
+                {
+                    console.ReadCommand();
+                }
+                catch (Exception e)
+                {
+                    Cli.WriteErrorMessage("Error reading command: {0}", e.Message);
+                }
             }
         }
     }
