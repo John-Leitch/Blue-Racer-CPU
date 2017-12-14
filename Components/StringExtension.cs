@@ -213,5 +213,18 @@ namespace Components
         {
             return InsertLineNumbers(s, 1);
         }
+
+        public static int[] IndexesOf(this string s, string value)
+        {
+            var indexes = new List<int>();
+            var i = -1;
+
+            while ((i = s.IndexOf(value, i + 1)) != -1)
+            {
+                indexes.Add(i);
+            }
+
+            return indexes.ToArray();
+        }
     }
 }

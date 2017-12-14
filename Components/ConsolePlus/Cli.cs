@@ -10,6 +10,16 @@ namespace Components.ConsolePlus
 {
     public static class Cli
     {
+        private const string _messageFormat = "[~{0}~{1}~R~] {2}";
+
+        public const char QueryChar = '?',
+          InfoChar = 'i',
+          SuccessChar = '+',
+          StringChar = 's',
+          BinaryChar = 'b',
+          ErrorChar = '-',
+          FatalErrorChar = 'x';
+
         private const string nameHeader = "Name";
 
         private const string valueHeader = "Value";
@@ -48,6 +58,13 @@ namespace Components.ConsolePlus
 
         static Cli()
         {
+            if (!Environment.UserInteractive)
+            {
+                _write = x => { };
+                _writeLine = x => { };
+                return;
+            }
+
             try
             {
                 SetLengths(Console.BufferWidth);
@@ -90,7 +107,7 @@ namespace Components.ConsolePlus
         public static void WriteLine()
         {
             _writeLine("");
-        }        
+        }
 
         public static void DumpTable(IEnumerable<KeyValuePair<string, string>> nameValuePairs)
         {
@@ -246,14 +263,24 @@ namespace Components.ConsolePlus
 
         public static void WriteHeader(string format, string style)
 #else
-        public static void WriteHeader(string format, string style = "")
+        public static void WriteHeader(string text, string style = "")
 #endif
         {
             var divider = new string('═', Console.BufferWidth - 3).ToCharArray();
             var hrTop = "╔" + new string(divider) + "╗\r\n";
-            var hrMiddle = "║" + style + " " + format.PadRight(Console.BufferWidth - 4).Replace("~", "~~") + "~R~║\r\n";
+            var hrMiddle = "║" + style + " " + text.PadRight(Console.BufferWidth - 4).Replace("~", "~~") + "~R~║\r\n";
             var hrBottom = "╚" + new string(divider) + "╝\r\n";
             Write(hrTop + hrMiddle + hrBottom);
+        }
+
+        public static void WriteSubheader(string text, string style = "")
+        {
+            Cli.WriteLine(
+                "{0}  {1}{2}{3}",
+                style,
+                Cli.Escape(text),
+                new string(' ', Console.BufferWidth - text.Length - 3),
+                "~R~");
         }
 
         /// <summary>
@@ -310,7 +337,7 @@ namespace Components.ConsolePlus
                             {
                                 var token = buffer.ToString();
 
-                                #if NET35
+#if NET35
                                 buffer = new StringBuilder();
 #else
                                 buffer.Clear();
@@ -361,6 +388,68 @@ namespace Components.ConsolePlus
                     _write(buffer.ToString());
                 }
             }
+        }
+
+        public static string Escape(string value)
+        {
+            return !string.IsNullOrEmpty(value) ?
+                value
+                    .Replace("{", "{{")
+                    .Replace("}", "}}")
+                    .Replace("~", "~~") :
+                null;
+        }
+
+        public static void WriteMessage(ConsoleColor tokenColor, char token, string format, params object[] arg)
+        {
+            Cli.WriteLine(
+                string.Format(_messageFormat, tokenColor, token, format),
+                arg);
+        }
+
+        public static void WriteInfoMessage(string format, params object[] arg)
+        {
+            WriteMessage(
+                ConsoleColor.White,
+                InfoChar,
+                format,
+                arg);
+        }
+
+        public static void WriteQueryMessage(string format, params object[] arg)
+        {
+            WriteMessage(
+                ConsoleColor.White,
+                QueryChar,
+                format,
+                arg);
+        }
+
+        public static void WriteSuccessMessage(string format, params object[] arg)
+        {
+            WriteMessage(
+                ConsoleColor.Green,
+                SuccessChar,
+                format,
+                arg);
+        }
+
+        public static void WriteErrorMessage(string format, params object[] arg)
+        {
+            WriteMessage(
+                ConsoleColor.Red,
+                ErrorChar,
+                format,
+                arg);
+        }
+
+        public static void WriteCriticalErrorMessage(string format, params object[] arg)
+        {
+            WriteMessage(
+                ConsoleColor.Red,
+                FatalErrorChar,
+                format,
+                arg);
         }
     }
 }
