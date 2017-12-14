@@ -1,5 +1,5 @@
 Flow report for DE0_NANO
-Wed Aug 27 03:16:08 2014
+Thu Dec 14 01:39:22 2017
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -40,17 +40,17 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Flow Summary                                                                    ;
 +------------------------------------+--------------------------------------------+
-; Flow Status                        ; Successful - Wed Aug 27 03:15:54 2014      ;
+; Flow Status                        ; Successful - Thu Dec 14 01:38:59 2017      ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                      ; DE0_NANO                                   ;
 ; Top-level Entity Name              ; BlueRacer                                  ;
 ; Family                             ; Cyclone IV E                               ;
 ; Device                             ; EP4CE22F17C6                               ;
 ; Timing Models                      ; Final                                      ;
-; Total logic elements               ; 16,039 / 22,320 ( 72 % )                   ;
-;     Total combinational functions  ; 14,579 / 22,320 ( 65 % )                   ;
-;     Dedicated logic registers      ; 4,176 / 22,320 ( 19 % )                    ;
-; Total registers                    ; 4176                                       ;
+; Total logic elements               ; 16,129 / 22,320 ( 72 % )                   ;
+;     Total combinational functions  ; 14,594 / 22,320 ( 65 % )                   ;
+;     Dedicated logic registers      ; 4,158 / 22,320 ( 19 % )                    ;
+; Total registers                    ; 4158                                       ;
 ; Total pins                         ; 27 / 154 ( 18 % )                          ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 459,207 / 608,256 ( 75 % )                 ;
@@ -64,27 +64,27 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 08/27/2014 03:05:29 ;
+; Start date & time ; 12/14/2017 01:23:52 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DE0_NANO            ;
 +-------------------+---------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                      ;
-+--------------------------------------------+-------------------------------+---------------+-------------+------------+
-; Assignment Name                            ; Value                         ; Default Value ; Entity Name ; Section Id ;
-+--------------------------------------------+-------------------------------+---------------+-------------+------------+
-; BLOCK_DESIGN_NAMING                        ; QuartusII                     ; Auto          ; --          ; --         ;
-; COMPILER_SIGNATURE_ID                      ; 2200440170610.140912312904288 ; --            ; --          ; --         ;
-; CYCLONEII_OPTIMIZATION_TECHNIQUE           ; Area                          ; Balanced      ; --          ; --         ;
-; FITTER_AGGRESSIVE_ROUTABILITY_OPTIMIZATION ; Never                         ; Automatically ; --          ; --         ;
-; PARTITION_COLOR                            ; 16764057                      ; --            ; BlueRacer   ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL        ; PLACEMENT_AND_ROUTING         ; --            ; BlueRacer   ; Top        ;
-; PARTITION_NETLIST_TYPE                     ; SOURCE                        ; --            ; BlueRacer   ; Top        ;
-; SMART_RECOMPILE                            ; On                            ; Off           ; --          ; --         ;
-; TOP_LEVEL_ENTITY                           ; BlueRacer                     ; DE0_NANO      ; --          ; --         ;
-+--------------------------------------------+-------------------------------+---------------+-------------+------------+
++------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                       ;
++--------------------------------------------+--------------------------------+---------------+-------------+------------+
+; Assignment Name                            ; Value                          ; Default Value ; Entity Name ; Section Id ;
++--------------------------------------------+--------------------------------+---------------+-------------+------------+
+; BLOCK_DESIGN_NAMING                        ; QuartusII                      ; Auto          ; --          ; --         ;
+; COMPILER_SIGNATURE_ID                      ; 88750181855042.151324343212200 ; --            ; --          ; --         ;
+; CYCLONEII_OPTIMIZATION_TECHNIQUE           ; Area                           ; Balanced      ; --          ; --         ;
+; FITTER_AGGRESSIVE_ROUTABILITY_OPTIMIZATION ; Never                          ; Automatically ; --          ; --         ;
+; PARTITION_COLOR                            ; 16764057                       ; --            ; BlueRacer   ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL        ; PLACEMENT_AND_ROUTING          ; --            ; BlueRacer   ; Top        ;
+; PARTITION_NETLIST_TYPE                     ; SOURCE                         ; --            ; BlueRacer   ; Top        ;
+; SMART_RECOMPILE                            ; On                             ; Off           ; --          ; --         ;
+; TOP_LEVEL_ENTITY                           ; BlueRacer                      ; DE0_NANO      ; --          ; --         ;
++--------------------------------------------+--------------------------------+---------------+-------------+------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
@@ -92,11 +92,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:06:16     ; 1.0                     ; 838 MB              ; 00:06:14                           ;
-; Fitter                    ; 00:03:58     ; 1.0                     ; 969 MB              ; 00:03:56                           ;
-; Assembler                 ; 00:00:02     ; 1.0                     ; 488 MB              ; 00:00:03                           ;
-; TimeQuest Timing Analyzer ; 00:00:12     ; 1.0                     ; 654 MB              ; 00:00:12                           ;
-; Total                     ; 00:10:28     ; --                      ; --                  ; 00:10:25                           ;
+; Analysis & Synthesis      ; 00:09:21     ; 1.0                     ; 868 MB              ; 00:08:39                           ;
+; Fitter                    ; 00:05:24     ; 1.0                     ; 962 MB              ; 00:05:11                           ;
+; Assembler                 ; 00:00:05     ; 1.0                     ; 513 MB              ; 00:00:05                           ;
+; TimeQuest Timing Analyzer ; 00:00:21     ; 1.0                     ; 696 MB              ; 00:00:20                           ;
+; Total                     ; 00:15:11     ; --                      ; --                  ; 00:14:15                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -105,10 +105,10 @@ applicable agreement for further details.
 +---------------------------+------------------+-----------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; jleitch-laptop2  ; Windows 7 ; 6.2        ; x86_64         ;
-; Fitter                    ; jleitch-laptop2  ; Windows 7 ; 6.2        ; x86_64         ;
-; Assembler                 ; jleitch-laptop2  ; Windows 7 ; 6.2        ; x86_64         ;
-; TimeQuest Timing Analyzer ; jleitch-laptop2  ; Windows 7 ; 6.2        ; x86_64         ;
+; Analysis & Synthesis      ; jleitch-laptop   ; Windows 7 ; 6.2        ; x86_64         ;
+; Fitter                    ; jleitch-laptop   ; Windows 7 ; 6.2        ; x86_64         ;
+; Assembler                 ; jleitch-laptop   ; Windows 7 ; 6.2        ; x86_64         ;
+; TimeQuest Timing Analyzer ; jleitch-laptop   ; Windows 7 ; 6.2        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 
