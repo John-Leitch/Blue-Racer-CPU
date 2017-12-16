@@ -49,7 +49,6 @@ namespace Components.Aphid.Interpreter
             }
         }
 
-
         public void LoadLibrary(Type libraryType, AphidObject scope)
         {
             var methods = libraryType
@@ -98,6 +97,13 @@ namespace Components.Aphid.Interpreter
 
         public string FindScriptFile(string scriptFile)
         {
+            return FindScriptFile(
+                Path.GetDirectoryName(Assembly.GetEntryAssembly().Location),
+                scriptFile);
+        }
+
+        public string FindScriptFile(string appDir, string scriptFile)
+        {
 
             Func<string, string>[] extensionStrategies = new Func<string, string>[]
             {
@@ -115,15 +121,25 @@ namespace Components.Aphid.Interpreter
                 }
             }
 
-            foreach (var file in files)
-            {
-                foreach (var p in _searchPaths)
-                {
-                    var f = Path.Combine(p, file);
+            var searchPathSets = new List<List<string>> { _searchPaths };
 
-                    if (File.Exists(f))
+            if (appDir != null)
+            {
+                searchPathSets.Add(new List<string> { appDir });
+            }
+
+            foreach (var paths in searchPathSets)
+            {
+                foreach (var file in files)
+                {
+                    foreach (var p in paths)
                     {
-                        return f;
+                        var f = Path.Combine(p, file);
+                        
+                        if (File.Exists(f))
+                        {
+                            return f;
+                        }
                     }
                 }
             }
@@ -131,9 +147,9 @@ namespace Components.Aphid.Interpreter
             return null;
         }
 
-        public void LoadScript(string scriptFile)
+        public void LoadScript(string scriptFile, bool isTextDocument = false)
         {
-            var f = FindScriptFile(scriptFile);
+            var f = FindScriptFile(null, scriptFile);
 
             if (f != null)
             {
@@ -147,7 +163,7 @@ namespace Components.Aphid.Interpreter
                     }
                 }
 
-                _interpreter.Interpret(File.ReadAllText(f));
+                _interpreter.Interpret(File.ReadAllText(f), isTextDocument);
             }
             else
             {

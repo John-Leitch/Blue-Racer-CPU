@@ -57,19 +57,31 @@ namespace Components.Aphid.Interpreter
             }
             else
             {
-                return new AphidObject((decimal)x.Value % (decimal)y.Value);
+                return new AphidObject(Convert.ToDecimal(x.Value) % Convert.ToDecimal(y.Value));
             }
         }
 
         public static AphidObject BinaryOr(AphidObject x, AphidObject y)
         {
+            Type t;
+
             if (x == null || y == null)
             {
                 throw new AphidOperationException("binary or");
             }
-            else
+            else if (!(t = x.Value.GetType()).IsEnum)
             {
                 return new AphidObject((decimal)((long)(decimal)x.Value | (long)(decimal)y.Value));
+            }
+            else
+            {
+                var underlyingType = Enum.GetUnderlyingType(t);
+                
+                var o = Enum.ToObject(
+                    t,
+                    Convert.ToUInt64(x.Value) | Convert.ToUInt64(y.Value));
+
+                return new AphidObject(o);
             }
         }
 
@@ -129,7 +141,7 @@ namespace Components.Aphid.Interpreter
             }
             else
             {
-                return new AphidObject(((decimal)x.Value) - (decimal)y.Value);
+                return new AphidObject(Convert.ToDecimal(x.Value) - Convert.ToDecimal(y.Value));
             }
         }
 
@@ -169,7 +181,11 @@ namespace Components.Aphid.Interpreter
                 }
                 else
                 {
-                    throw new AphidRuntimeException("Could not multiply type");
+                    // Todo: check if values are numeric and convert, otherwise
+                    // throw the following exception.
+                    // throw new AphidRuntimeException("Could not multiply type");
+
+                    return new AphidObject(Convert.ToDecimal(x.Value) * Convert.ToDecimal(y.Value));                    
                 }
 
                 return new AphidObject(val);
@@ -184,7 +200,7 @@ namespace Components.Aphid.Interpreter
             }
             else
             {
-                return new AphidObject(((decimal)x.Value) / (decimal)y.Value);
+                return new AphidObject(Convert.ToDecimal(x.Value) / Convert.ToDecimal(y.Value));
             }
         }
 

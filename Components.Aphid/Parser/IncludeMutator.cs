@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace Components.Aphid.Parser
@@ -12,6 +13,8 @@ namespace Components.Aphid.Parser
     {
         AphidLoader _loader = new AphidLoader(null);
 
+        private string _applicationDirectory;
+
         public bool UseImplicitReturns { get; private set; }
 
         public AphidLoader Loader
@@ -19,13 +22,19 @@ namespace Components.Aphid.Parser
             get { return _loader; }
         }
 
-        public IncludeMutator(bool useImplicitReturns)
+        public IncludeMutator(string applicationDirectory, bool useImplicitReturns)
         {
+            _applicationDirectory = applicationDirectory;
             UseImplicitReturns = useImplicitReturns;
         }
 
+        public IncludeMutator(string applicationDirectory)
+            : this(applicationDirectory, true)
+        {
+        }
+
         public IncludeMutator()
-            : this(true)
+            : this(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location))
         {
         }
 
@@ -51,7 +60,7 @@ namespace Components.Aphid.Parser
                     loadExp.FileExpression);
             }
 
-            var script = _loader.FindScriptFile(StringParser.Parse(scriptExp.Value));
+            var script = _loader.FindScriptFile(_applicationDirectory, StringParser.Parse(scriptExp.Value));
 
             if (!File.Exists(script))
             {

@@ -222,7 +222,9 @@ namespace Components.Aphid.Interpreter
                 t == typeof(int) ||
                 t == typeof(uint) ||
                 t == typeof(long) ||
-                t == typeof(ulong))
+                t == typeof(ulong) ||
+                t == typeof(float) ||
+                t == typeof(double))
             {
                 return new AphidObject(Convert.ToDecimal(o));
             }
@@ -264,6 +266,20 @@ namespace Components.Aphid.Interpreter
             return ConvertFrom(typeof(T), o);
         }
 
+        public AphidObject Resolve(string key, string errorMessage = null)
+        {
+            AphidObject obj;
+
+            if (!TryResolve(key, out obj))
+            {
+                throw new AphidRuntimeException(
+                    errorMessage ?? 
+                    string.Format("Could not resolve {0}.", key));
+            }
+
+            return obj;
+        }
+
         public bool TryResolve(string key, out AphidObject value)
         {
             if (TryGetValue(key, out value))
@@ -295,6 +311,24 @@ namespace Components.Aphid.Interpreter
             {
                 return false;
             }
+        }
+
+        public bool IsAphidType()
+        {
+            return IsAphidType(this.Value);
+        }
+
+        public static bool IsAphidType(object obj)
+        {
+            return
+                obj == null ||
+                obj is string ||
+                obj is decimal ||
+                obj is bool ||
+                obj is List<AphidObject> ||
+                obj is AphidObject ||
+                obj is AphidFunction ||
+                obj is AphidInteropFunction;
         }
     }
 }

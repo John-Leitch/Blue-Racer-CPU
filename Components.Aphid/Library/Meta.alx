@@ -1,0 +1,137 @@
+﻿using System;
+using Components.Aphid.Lexer;
+using Components.Aphid.Interpreter;
+using Components.Aphid.Parser;
+
+_op = macro(@(op){ @{ op; } });
+_ad = macro(@(op){ @{ code.indent = op * code.tab; } });
+
+getBlock = @() this.{'$parent'}.{'$block'};
+
+parse = @(code) AphidParser.Parse(code, false);
+parseExp = @(exp) parse(exp)[0];
+
+parseFunc = @(code) {
+    f = @{ };
+    f.Body.Clear();
+    (code |> parse)->f.Body.Add;
+    
+    ret f;
+};
+
+evalBlock = @(code) parseFunc(code)();
+evalExp = @(code) parseFunc('ret ' + code)();
+
+evalNode = @(node) {
+    templateFunc = @{ };
+    (ast.isRet($_) ? $_ : ast.makeRet($_)) |> templateFunc.Body.Add;
+    r = templateFunc();
+    templateFunc.Body.Clear();
+
+    ret r;
+};
+
+evalAst = @(ast) {
+    templateFunc = @{ };
+    ast->templateFunc.Body.Add;
+    r = templateFunc();
+    templateFunc.Body.Clear();
+
+    ret r;
+};
+
+loadFile = @(asmFile) asmFile
+    |> Path.GetFullPath
+    @() $_.Replace('\\', '\\\\')
+    @String.Format('load "{0}"')
+    |> evalExp;
+
+_callExp = macro(@(i){ this.{'$frames'}[i].Expression });
+getCall = @() _callExp(1);
+getArgs = @() _callExp(1).Args;
+getArg = @(i) _callExp(1).Args[i];
+getIdArg = @(i) _callExp(1).Args[i].Identifier;
+idString = @() getArg(0);
+
+makeFluent = @(obj) {
+    n = getIdArg(0);
+    (obj |> reflection.members)
+    -> (@() obj.{$_})
+    -? (@has('Body'))
+    -> (@{
+        using System.Linq;
+        if (($_.Body.Count) == 0 ||
+            ($_.Body |> Enumerable.Last |> ast.isRet @== false))
+            'ret ' + n  |> parseExp |> $_.Body.Add;
+    });
+
+    ret obj;
+};
+
+ast = {
+    op: @() $_.Operator,
+    isOp: @(op, node) node.Operator == op,
+    isRet: @() $_.Type == nodeType.unOp && ast.isOp(token.return, $_),
+    lhs: @(node) node.LeftOperand,
+    rhs: @(node) node.RightOperand,
+    attr: @(node) node.Attributes[0],
+
+    nodeIs: @(type, node) node.Type == type,
+    isId: @(node) node @ast.nodeIs(
+        AphidExpressionType.IdentifierExpression),
+    
+    attrs: @(node) {
+        if (!(node |> ast.isId))
+        {
+            print('ast.attrs expects id node');
+            
+            ret null;
+        }
+
+        ret node.Attributes->@.Identifier;
+    },
+
+    depth: 0,
+    indent: @() ' ' * ast.depth * 2,
+
+    walk: @(visit, node, context) {
+        c = context defined ? context : {};
+        c.isRoot = ast.depth == 0;
+        c.isBlock = node @is('IEnumerable');
+        c.hasChildren = node @has('GetChildren');
+        c.isHandled = false;
+        visit(node, c);
+        next = @(node) ast.walk(visit, node, c);
+
+        if (c.isHandled) ret null;
+        
+        if (c.isBlock) {
+            ast.depth++;
+            node->next;
+            ast.depth--;
+        } else if (c.hasChildren) {  
+            node.GetChildren() |> next;
+        }
+    },
+
+    makeRet = @(node) new UnaryOperatorExpression(token.return, node, false),
+};
+
+nodeType = { };
+
+@{
+    id Identifier;
+    unOp UnaryOperator;
+    binOp BinaryOperator;
+    str String;
+    call Call;
+}.Body->@{
+    nodeType.{$_.Attributes[0]} = 
+        $_
+        @String.Format('AphidExpressionType.{0}Expression')
+        evalExp
+};
+
+token = {
+    return: AphidTokenType.retKeyword
+};

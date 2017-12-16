@@ -46,8 +46,8 @@ namespace Components.Aphid.Parser
                 return new List<AphidExpression> 
                 { 
                     new StringExpression(
-                        "'" + left.Substring(1, left.Length - 2) + 
-                        right.Substring(1, right.Length - 2) + "'")
+                        "'" + left.Substring(1, left.Length - 2).Replace("\\\"", "\"") + 
+                        right.Substring(1, right.Length - 2).Replace("\\\"", "\"") + "'")
                 };
             }
             else if (OperandsAre<NumberExpression>(binOp))
@@ -62,6 +62,12 @@ namespace Components.Aphid.Parser
 
                     case AphidTokenType.MinusOperator:
                         return new List<AphidExpression> { new NumberExpression(left - right) };
+
+                    case AphidTokenType.MultiplicationOperator:
+                        return new List<AphidExpression> { new NumberExpression(left * right) };
+
+                    case AphidTokenType.DivisionOperator:
+                        return new List<AphidExpression> { new NumberExpression(left / right) };
 
                     default:
                         hasChanged = false;

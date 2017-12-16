@@ -75,16 +75,22 @@ namespace Components.Aphid.Library
             }
         }
 
-        [AphidInteropFunction("print")]
-        private static void Print(object message)
+        [AphidInteropFunction("print", PassInterpreter = true)]
+        private static void Print(AphidInterpreter interpreter, object message)
         {
-            Console.WriteLine(message != null ? message.ToString() : null);
+            interpreter.WriteOut(message != null ?
+                message.ToString() + Environment.NewLine :
+                Environment.NewLine);
         }
 
-        [AphidInteropFunction("printf")]
-        private static void PrintF(string format, params object[] args)
+        [AphidInteropFunction("printf", PassInterpreter = true)]
+        private static void PrintFormatted(
+            AphidInterpreter interpreter, 
+            string format, 
+            params object[] args)
         {
-            Console.WriteLine(format, args);
+            var s = string.Format(format + Environment.NewLine, args);
+            interpreter.WriteOut(s);
         }
 
         [AphidInteropFunction("sprintf")]
@@ -329,6 +335,12 @@ namespace Components.Aphid.Library
         private static string StringLower(string str)
         {
             return str.ToLower();
+        }
+
+        [AphidInteropFunction("__string.replace")]
+        private static string StringReplace(string str, string oldValue, string newValue)
+        {
+            return str.Replace(oldValue, newValue);
         }
 
         private static bool _ignoreCase = false;
