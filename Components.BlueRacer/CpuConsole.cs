@@ -19,6 +19,9 @@ namespace Components.BlueRacer
 
         private CpuProgrammer _programmer;
 
+        private Lazy<AphidInterpreter> _interpreter =
+            new Lazy<AphidInterpreter>(() => new AphidInterpreter());
+
         public void Connect(string host)
         {
             Cli.Write("Connecting... ");
@@ -66,20 +69,50 @@ namespace Components.BlueRacer
 
         private T InterpretArg<T>(string arg)
         {
-            var tokens = new AphidLexer(arg).GetTokens();
-            var parser = new AphidParser(tokens);
-            parser.NextToken();
-
+            List<AphidToken> tokens;
+            AphidParser parser;
             var varName = "$val";
-            var exp = new BinaryOperatorExpression(
-                new IdentifierExpression(varName),
-                AphidTokenType.AssignmentOperator,
-                parser.ParseExpression());
+            BinaryOperatorExpression exp;
 
-            var interpreter = new AphidInterpreter();
-            interpreter.Interpret(new List<AphidExpression> { exp });
+            try
+            {
+                tokens = new AphidLexer(arg).GetTokens();
+                parser = new AphidParser(tokens);
+                parser.NextToken();
+                exp = new BinaryOperatorExpression(
+                    new IdentifierExpression(varName),
+                    AphidTokenType.AssignmentOperator,
+                    parser.ParseExpression());
+            }
+            catch (AphidParserException e)
+            {
+                throw new AphidParserException(
+                    "Error parsing argument expression:\r\n{0}",
+                    ParserErrorMessage.Create(arg, e));
+            }
+            catch (Exception e)
+            {
+                throw new AphidParserException(
+                    "Unknown error parsing argument expression {0}:\r\n{1}",
+                    arg,
+                    e.Message);
+            }
 
-            var val = interpreter.CurrentScope[varName].Value;
+            object val;
+            //var interpreter = new AphidInterpreter();
+
+            try
+            {
+                _interpreter.Value.Interpret(new List<AphidExpression> { exp });
+                val = _interpreter.Value.CurrentScope[varName].Value;
+            }
+            catch (Exception e)
+            {
+                throw new AphidParserException(
+                    "Unknown error parsing argument expression:\r\n{0}",
+                    e);
+            }
+            
 
             if (val == null)
             {
