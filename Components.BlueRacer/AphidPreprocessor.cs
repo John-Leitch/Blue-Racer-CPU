@@ -175,7 +175,7 @@ namespace Components.BlueRacer
             return ast;
         }
 
-        public List<AphidExpression> ExpandWhileExpression(ControlFlowExpression expression)
+        public List<AphidExpression> ExpandWhileExpression(WhileExpression expression)
         {
             var g = Guid.NewGuid();
 
@@ -198,7 +198,7 @@ namespace Components.BlueRacer
 
         private bool AnyControlFlowExpressions(List<AphidExpression> ast)
         {
-            return ast.OfType<IfExpression>().Any() || ast.OfType<ControlFlowExpression>().Any();
+            return ast.OfType<IfExpression>().Any() || ast.OfType<WhileExpression>().Any();
         }
 
         private List<AphidExpression> ExpandControlFlowExpressions(AphidExpression expression)
@@ -207,13 +207,13 @@ namespace Components.BlueRacer
             {
                 return ExpandIfExpression((IfExpression)expression);
             }
-            else if (expression is ControlFlowExpression)
+            else if (expression is WhileExpression)
             {
-                var cfExp = (ControlFlowExpression)expression;
+                var cfExp = (WhileExpression)expression;
 
                 switch (cfExp.Type)
                 {
-                    case AphidNodeType.WhileExpression:
+                    case AphidExpressionType.WhileExpression:
                         return ExpandWhileExpression(cfExp);
 
                     default:

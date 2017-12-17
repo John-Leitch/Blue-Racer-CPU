@@ -28,10 +28,10 @@ namespace Components.BlueRacer
         {
             switch (memberExpression.Type)
             {
-                case AphidNodeType.IdentifierExpression:
+                case AphidExpressionType.IdentifierExpression:
                     return new[] { ((IdentifierExpression)memberExpression).Identifier };
 
-                case AphidNodeType.BinaryOperatorExpression:
+                case AphidExpressionType.BinaryOperatorExpression:
                     var binOpExp = (BinaryOperatorExpression)memberExpression;
 
                     return FlattenMembers(binOpExp.LeftOperand)
@@ -61,10 +61,8 @@ namespace Components.BlueRacer
                 new BinaryOperatorExpression(
                     new IdentifierExpression(register),
                     AphidTokenType.AdditionOperator,
-                    new NumberExpression(offset)))
-            {
-                IsPostfix = false,
-            };
+                    new NumberExpression(offset)),
+                isPostfix: false);
 
             return new List<AphidExpression> { exp };
         }
@@ -75,12 +73,12 @@ namespace Components.BlueRacer
 
             switch (expression.Type)
             {
-                case AphidNodeType.BinaryOperatorExpression:
+                case AphidExpressionType.BinaryOperatorExpression:
                     var binOpExp = (BinaryOperatorExpression)expression;
 
                     if (binOpExp.Operator == AphidTokenType.AssignmentOperator &&
-                        binOpExp.LeftOperand.Type == AphidNodeType.IdentifierExpression &&
-                        binOpExp.RightOperand.Type == AphidNodeType.ObjectExpression)
+                        binOpExp.LeftOperand.Type == AphidExpressionType.IdentifierExpression &&
+                        binOpExp.RightOperand.Type == AphidExpressionType.ObjectExpression)
                     {
                         hasChanged = true;
 
@@ -99,7 +97,7 @@ namespace Components.BlueRacer
 
                     break;
 
-                case AphidNodeType.IdentifierExpression:
+                case AphidExpressionType.IdentifierExpression:
 
                     var id = (IdentifierExpression)expression;
 

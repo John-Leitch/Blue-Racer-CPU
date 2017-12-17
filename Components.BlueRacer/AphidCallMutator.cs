@@ -42,7 +42,7 @@ namespace Components.BlueRacer
             }
 
             var mutated = new List<AphidExpression>();
-            mutated.AddRange(call.Args.Reverse().Select(CreatePush));
+            mutated.AddRange(call.Args.Select(CreatePush).Reverse());
             mutated.Add(new CallExpression(
                 new IdentifierExpression(InstructionMnemonic.Call),
                 call.FunctionExpression));

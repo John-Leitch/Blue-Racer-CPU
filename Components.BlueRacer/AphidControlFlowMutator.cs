@@ -1,5 +1,6 @@
 ﻿using Components.Aphid.Lexer;
 using Components.Aphid.Parser;
+using Components.Aphid.Parser.Fluent;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,19 +56,26 @@ namespace Components.BlueRacer
             return ast;
         }
 
-        public List<AphidExpression> ExpandWhileExpression(ControlFlowExpression expression)
+        public List<AphidExpression> ExpandWhileExpression(WhileExpression expression)
         {
             var g = Guid.NewGuid();
 
             IdentifierExpression whileLabel = new IdentifierExpression("While_" + g),
                 endWhileLabel = new IdentifierExpression("EndWhileIf_" + g);
 
-            var ast = new List<AphidExpression>
+            var ast = new List<AphidExpression> { whileLabel };
+
+            if (expression.Condition.Type == AphidExpressionType.BooleanExpression &&
+                expression.Condition.ToBoolean().Value)
             {
-                whileLabel,
+                ast.Add(new CallExpression(gotoId, endWhileLabel));
+            }
+
+            ast.AddRange(new[]
+            {
                 MutateCondition(expression.Condition),
                 new CallExpression(gotoFalseId, endWhileLabel),
-            };
+            });
 
             ast.AddRange(expression.Body);
             ast.Add(new CallExpression(gotoId, whileLabel));
@@ -90,7 +98,7 @@ namespace Components.BlueRacer
 
         private bool AnyControlFlowExpressions(List<AphidExpression> ast)
         {
-            return ast.OfType<IfExpression>().Any() || ast.OfType<ControlFlowExpression>().Any();
+            return ast.OfType<IfExpression>().Any() || ast.OfType<WhileExpression>().Any();
         }
 
         private List<AphidExpression> ExpandControlFlowExpressions(AphidExpression expression)
@@ -99,13 +107,13 @@ namespace Components.BlueRacer
             {
                 return ExpandIfExpression((IfExpression)expression);
             }
-            else if (expression is ControlFlowExpression)
+            else if (expression is WhileExpression)
             {
-                var cfExp = (ControlFlowExpression)expression;
+                var cfExp = (WhileExpression)expression;
 
                 switch (cfExp.Type)
                 {
-                    case AphidNodeType.WhileExpression:
+                    case AphidExpressionType.WhileExpression:
                         return ExpandWhileExpression(cfExp);
 
                     default:
